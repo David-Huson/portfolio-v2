@@ -1,31 +1,17 @@
-# Astro Starter Kit: Portfolio
+# My portfolio built with astro
 
-```
-npm create astro@latest -- --template portfolio
-```
+Special thanks to the designer who developed this theme, Jeanine White. 
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/portfolio)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/portfolio)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/portfolio/devcontainer.json)
+## Why I used a pre-made theme?
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Im no UI/UX designer, Im a developer. And while I was having fun learning design, I was spending too much time on that instead of writing content for the site. So I made the tough decision to go with this theme, which was already exactly the type of design i was striving for, so I can spend more time writing content and working on projects. 
 
-![portfolio](https://user-images.githubusercontent.com/357379/210779178-a98f0fb7-6b1a-4068-894c-8e1403e26654.jpg)
+While this is a premade theme, I did put my own touch on it. I changed the fonts to those which I picked for my previous portfolio, and I changed some of the site's wording to better reflect my own experience level and skills.
 
+## Why Astro?
 
-## 🧞 Commands
+Astro is a really awesome tool. It's the perfect combination of my skills with JavaScript/TypeScript, React, HTML, and CSS. And it allows for a faster, lighter bundle to be shipped to the browser. Look at my portfolio for an in depth article about my portfolio where ill delve deeper into why i chose Astro over something like NextJS.
+ 
+ ## Have feedback?
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Please send any feedback to my [email](dhuson@davidhuson.dev) and I'll respond ASAP.
