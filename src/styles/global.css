@@ -135,6 +135,7 @@ body {
 *::before {
 	box-sizing: border-box;
 	margin: 0;
+	font-display: swap;
 }
 
 img {
