@@ -1,7 +1,7 @@
 ---
 title: Image Classification using Covolutional Nerual Networks
 publishDate: 2022-04-21 18:48:00
-img: /assets/HorseorhumanThumb.png
+img: /assets/horseorhuman_thumbnail.webp
 img_alt: Horse on the left and human on the right with a bright green and blue background. Text in the front that asks, horse or human?
 description: |
   A project developed as a student-chosen topic for an Introduction to AI course.
