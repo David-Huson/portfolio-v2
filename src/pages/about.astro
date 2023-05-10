@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 import ContactCTA from '../components/ContactCTA.astro';
 import Hero from '../components/Hero.astro';
+import Pill from '../components/Pill.astro';
 ---
 
 <BaseLayout title="About | David Huson" description="About Huson">
@@ -49,21 +50,29 @@ import Hero from '../components/Hero.astro';
 						<li>Data Structures and Algorithms 1</li>
 						<li>And more...</li>
 					</ul>
+					<br />
 					<p>The amount of knowledge gained from these courses is almost inumerable. Ill try to touch on some of the highlights here.</p>
 					<br />
-					<p>From Intro to AI I learned about the history of AI, and some of the basic forms of AI which we take advantage of daily. Including Search Algorithms, knowledge Representations, and Machine Learning. I also learned a lot from the project I completed with the help of Joel Ward. We chose to create an <a target="_self" href="https://www.davidhuson.dev/projects/image-classifier">Image Classifier</a> in python using Tenforflow and Keras. See my <a target="_self" href="https://www.davidhuson.dev/projects/image-classifier">blog post</a> for more details.</p>
+					<p>From <strong>Intro to AI</strong> I learned about the history of AI, and some of the basic forms of AI which we take advantage of daily. Including Search Algorithms, knowledge Representations, and Machine Learning. I also learned a lot from the project I completed with the help of Joel Ward. We chose to create an <a target="_self" href="https://www.davidhuson.dev/projects/image-classifier">Image Classifier</a> in python using Tenforflow and Keras. See my <a target="_self" href="https://www.davidhuson.dev/projects/image-classifier">blog post</a> for more details.</p>
 					<br />
-					<p>From Intro to Big Data I learned how to use Spark and Scala to interface with Hadoop and process large ammounts of real-time data. This was a bit of a callenge since it was my first venture into the world of functional programming. But I learned to like it, and I definetly see the benefit of it for the processing of large amounts of raw data.</p>
+					<p>From <strong>Intro to Big Data</strong> I learned how to use Spark and Scala to interface with Hadoop and process large ammounts of real-time data. This was a bit of a callenge since it was my first venture into the world of functional programming. But I learned to like it, and I definetly see the benefit of it for the processing of large amounts of raw data.</p>
 					<br />
-					<p>From Database Design and Development I learned how to design and develop databases, as well as learning how to craft complex queries to pull the necessary data from those databases.</p>
+					<p>From <strong>Database Design and Development</strong> I learned how to design and develop databases, as well as learning how to craft complex queries to pull the necessary data from those databases.</p>
 					<br />
-					<p>Data Structures and Algorims </p>
+					<p><strong>Data Structures and Algorims</strong> taught me how to analyze algoroithms for their complexity in both space and time. It also taught me how to choose which algoroithm to use for different situations. One of the big takeaways from this course was how to use Test Driven Development.</p>
 				</div>
 			</section>
 			<section>
 				<h2 class="section-title">Skills</h2>
-				<div class="content">
-					
+				<!-- <div class="content">
+					Object Oriented Programming, Test Driven Development, Project Management, Leadership, Training
+				</div> -->
+				<div class="skills">
+					<Pill>Object Oriented Programming</Pill>
+					<Pill>Test Driven Development</Pill>
+					<Pill>Project Management</Pill>
+					<Pill>Leadership</Pill>
+					<Pill>Training</Pill>
 				</div>
 			</section>
 		</main>
@@ -73,6 +82,12 @@ import Hero from '../components/Hero.astro';
 </BaseLayout>
 
 <style>
+	.skills {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+	
 	.about {
 		display: flex;
 		flex-direction: column;
