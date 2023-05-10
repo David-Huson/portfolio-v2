@@ -20,4 +20,4 @@ A Convolutional Neural Network(CNN) is an Artificial Neural Network in which at 
 
 A convolution is a mathematical operation where we take the input matrix, and pass a smaller matrix known as the kernel or filter over top of it. When we do so, we perform matrix multiplication between the kernel and the portion of the input matrix which is currently covered my the kernel.
 
-Read more in our full report [here](/public/assets/files/Project_2_Report-compressed.pdf)
+Read more in our full report <a href='/assets/files/Project_2_Report-compressed.pdf'>here</a>
