@@ -60,6 +60,10 @@ Now comes the part where we started tuning our architecture with the Keras Tuner
 
 <img src="/assets/architecture.webp" alt="an image depicting the model architecture described above" />
 
+### Results
+
+Our best model boasts an accuracy of 91.80% on the validation dataset, which is quite strong in a vacuum. However, in testing the final model with data from the internet, we found some weaknesses in it. These weaknesses can largely be attributed to the size of our training dataset, which only has 1027 training images (500 horses, 527 humans). There also exists a bias in our training data. Namely, the dataset is biased towards full body images of humans. Due to this bias, if given an image of a human in which only a portion of the body is visible, say their head, it will misclassify the image. Which leads us to ponder how we can improve the accuracy of our model on more general data.
+
 ### Conculsion
 
 All in all, we would like to do more research into how to optimize a model with a relatively small dataset. But we were particularly happy with the results we got. For more details, our <a href='/assets/files/Project_2_Report-compressed.pdf'>full report</a>.
