@@ -33,6 +33,21 @@ const projects = (await getCollection('projects')).sort(
 					))
 				}
 			</Grid>
+			<p>
+				To see more of my work, check out my <a
+				aria-current={Astro.url.pathname === 'https://github.com/David-Huson'}
+				class:list={[
+					'link',
+					{
+						active:
+							Astro.url.pathname === 'https://github.com/David-Huson',
+					},
+				]}
+				href='https://github.com/David-Huson'
+			>
+				GitHub
+			</a>
+			</p>
 		</main>
 		<ContactCTA />
 	</div>
