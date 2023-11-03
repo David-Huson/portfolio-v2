@@ -68,7 +68,7 @@ Our best model boasts an accuracy of 91.80% on the validation dataset, which is 
 
 The data shows that the single variable that makes the most impact when changed is the Kernel Size of one or more convolutional layer(s). The experiments focused on the effects of changing a single parameter at a time, however it may be beneficial to allow the tuning of several parameters simultaneously to find the best overall configuration. More excitingly, experimenting with various boosting methods may also lead to improvements.
 
-Additionally, the dataset ued was relatively small, and improvements to accuracies could likely be seen when performing data augmentation to boost the number of training data points.
+Additionally, the dataset used was relatively small, and improvements to accuracies could likely be seen when performing data augmentation to boost the number of training data points.
 
 ### Conclusion
 
