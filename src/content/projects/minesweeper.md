@@ -60,3 +60,5 @@ Tackling this project sharpened my skills in several areas:
 ## Conclusion
 
 From recursive algorithms to user interface design, this Minesweeper project has been a comprehensive exercise in applying DSA principles in C++. It has reinforced my understanding of recursion, while also challenging me to think about user interaction and program robustness. As I continue my journey in computer science, these skills are not just achievements, but also tools that will propel me toward more complex and fascinating challenges.
+
+To learn more about this project, check out the <a href="https://github.com/David-Huson/Minesweeper">GitHub Repo</a>

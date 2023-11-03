@@ -38,3 +38,5 @@ Throughout this project, I learned valuable lessons in algorithmic thinking, lan
 Moreover, this project highlighted the timeless relevance of automata theory in computer science. As we continue to advance towards more sophisticated computing paradigms, the foundational principles encapsulated in finite state automata remain as crucial as ever.
 
 In conclusion, this project was a remarkable synthesis of theory and practice, a dance between the abstract and the concrete. It was an opportunity to delve into the heart of computing and emerge with a greater appreciation for the intricacy and beauty of programming.
+
+To learn more about this project, check out the <a href="https://github.com/David-Huson/COP4020-ProgrammingLanguages/tree/main/project4">GitHub Repo</a>

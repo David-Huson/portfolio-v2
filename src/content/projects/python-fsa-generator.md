@@ -29,3 +29,5 @@ This project is not just a lesson in Python or automata theory; it's a multi-dis
 
 **Reflecting on the Process**
 In retrospect, the process is empowering. It demonstrates that with Python and Tkinter, one can visualize complex theories and make learning interactive. The significance of determinate FSAs, grammars, and alphabets in the theory of computation is not just academic; they are crucial to understanding how computers and languages work, forming a bridge between the abstract and the practical.
+
+To learn more about this project, check out the <a href="https://github.com/David-Huson/COP4020-ProgrammingLanguages/tree/main/project3">GitHub Repo</a>

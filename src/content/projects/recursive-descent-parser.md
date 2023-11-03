@@ -42,3 +42,5 @@ The parser project described presents a real-world application of these concepts
 ### Conclusion
 
 This journey of implementing a parser and an IR with register allocation simulation in C, especially coming from a C++ background, is a deep dive into the fundamentals of programming languages and compilers. It's a challenging but rewarding experience that hones problem-solving skills and deepens one's understanding of both high-level and low-level programming concepts.
+
+To learn more about this project, check out the <a href="https://github.com/David-Huson/COP4020-ProgrammingLanguages/tree/main/project1">GitHub Repo</a>

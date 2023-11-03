@@ -46,7 +46,7 @@ Another important aspect of Image classification is Pooling. In our project we u
 
 Dropout is a regularization method in neural network training in which some layer outputs are ignored or dropped at random. This is done to prevent all the neurons from converging to the same goal. Disallowing neurons to converge onthe same goal seems counterintuitive, however, this has the effect of decorrelating the weights of groups of neurons.
 
-### Our Network Architecture 
+### Our Network Architecture
 
 If you search Google for what model architecture to use, you'll likely come across four different architectures: Resnet50, VGG16,  Inceptionv3, and EfficientNet.
 
@@ -64,7 +64,12 @@ Now comes the part where we started tuning our architecture with the Keras Tuner
 
 Our best model boasts an accuracy of 91.80% on the validation dataset, which is quite strong in a vacuum. However, in testing the final model with data from the internet, we found some weaknesses in it. These weaknesses can largely be attributed to the size of our training dataset, which only has 1027 training images (500 horses, 527 humans). There also exists a bias in our training data. Namely, the dataset is biased towards full body images of humans. Due to this bias, if given an image of a human in which only a portion of the body is visible, say their head, it will misclassify the image. Which leads us to ponder how we can improve the accuracy of our model on more general data.
 
-### Conculsion
+### Discussion
+
+The data shows that the single variable that makes the most impact when changed is the Kernel Size of one or more convolutional layer(s). The experiments focused on the effects of changing a single parameter at a time, however it may be beneficial to allow the tuning of several parameters simultaneously to find the best overall configuration. More excitingly, experimenting with various boosting methods may also lead to improvements.
+
+Additionally, the dataset ued was relatively small, and improvements to accuracies could likely be seen when performing data augmentation to boost the number of training data points.
+
+### Conclusion
 
 All in all, we would like to do more research into how to optimize a model with a relatively small dataset. But we were particularly happy with the results we got. For more details, our <a href='/assets/files/Project_2_Report-compressed.pdf'>full report</a>.
-
