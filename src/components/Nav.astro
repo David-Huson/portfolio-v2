@@ -1,5 +1,5 @@
 ---
-import Icon, { Props as IconProps } from './Icon.astro';
+import Icon, { type Props as IconProps } from './Icon.astro';
 import Pill from './Pill.astro';
 import ThemeToggle from './ThemeToggle.astro';
 
@@ -12,7 +12,7 @@ const textLinks: { label: string; href: string }[] = [
 
 /** Icon links to social media — edit these with links to your profiles! */
 const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
-	{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/david-huson-', icon: 'linkedin' },
+	{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/david-huson', icon: 'linkedin' },
 	{ label: 'GitHub', href: 'https://github.com/David-Huson', icon: 'github-logo' },
 ];
 ---
