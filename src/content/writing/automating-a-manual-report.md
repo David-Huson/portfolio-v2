@@ -11,29 +11,31 @@ draft: true
 ---
 
 <!-- TODO: update publishDate when published -->
-<!-- STUB: outline only — do not publish until TODOs are resolved and draft: false -->
+<!-- DRAFT: bracketed [TODO: ...] placeholders need real facts before publishing; keep draft: true until resolved -->
 
-## The Manual Process
+## The manual process
 
-- TODO: describe how the report was assembled by hand, kept generic and non-identifying
-- TODO: how often it ran and who consumed it
+There was a clinical report that people assembled by hand. [TODO: generic, non-identifying description — data gathered from which kinds of places, roughly how many steps, how long it took.] It ran [TODO: cadence] and went to [TODO: who consumed it, generically]. Nobody thought of it as a risk. It was just how the report got made, and it had been made that way for [TODO: how long].
 
-## The Automation
+## The automation
 
-- TODO: what the automated version does and what it replaced
-- TODO: how the old and new outputs were compared
+We automated it — [TODO: one or two sentences on what the automated version does and what it pulls from]. As part of the rollout we ran the two side by side and compared outputs line by line. [TODO: how the comparison was actually done and over what period.]
 
-## The Surprise
+## The surprise
 
-- The automation surfaced an error rate above 70% in the legacy manual process
-- TODO: what kinds of errors they were
-- TODO: how long the errors had gone unnoticed, and why
+We expected the automation to save time. What it actually did first was grade the old process: more than 70% of the manually assembled report was wrong.
 
-## What That Says About Manual Data Work
+[TODO: what kinds of errors — transcription, stale data, missed records, arithmetic.]
+[TODO: how long the errors had gone unnoticed, and why nobody caught them.]
 
-- TODO: why manual processes hide their own error rate
-- TODO: the role automation plays as a measurement tool, not just a labor saver
+Nobody had been careless. The process was simply the kind that hides its own failure rate: every number looked plausible, nothing downstream loudly broke, and no one had ever had a second copy to compare against.
+
+## What that says about manual data work
+
+A manual process has no error bars. It reports a number with the same confidence whether it's right or wrong, and checking it costs as much as producing it — so nobody checks. The error rate isn't zero; it's *unmeasured*, which feels the same until the day it doesn't.
+
+That's the reframe I took away: automation isn't only a labor saver. It's a measurement instrument. The first thing an automated pipeline produces is a second, independent answer — and the disagreement between the two is data you have never had before.
 
 ## Takeaway
 
-- TODO: the one thing worth remembering, stated plainly
+If a number matters and it's assembled by hand, its accuracy is unknown — not high, unknown. [TODO: one sentence on what happened after — whether the finding changed how other manual processes were treated.]
