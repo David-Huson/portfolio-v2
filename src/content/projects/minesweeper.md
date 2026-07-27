@@ -9,6 +9,7 @@ tags:
   - C++
   - Data Structures and Algorithms
   - Recursion
+archived: true
 ---
 
 ## The Challenge

@@ -9,6 +9,7 @@ tags:
   - C
   - Parser
   - Static Analysis
+archived: true
 ---
 
 ### The Journey

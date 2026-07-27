@@ -9,6 +9,7 @@ tags:
   - xLisp
   - Python
   - Computation Theory
+archived: true
 ---
 
 Embarking on the journey of programming can often lead you through some intricate and fascinating paths. Recently, I completed a project that not only challenged my coding skills but also broadened my understanding of computational theory and language processing. This endeavor involved two primary objectives: writing a program in xLisp to test a string representing a finite state automaton (FSA), and crafting a Python program capable of generating a Lisp program for testing a given string against a provided FSA string representation. Here's how I navigated this intriguing project.

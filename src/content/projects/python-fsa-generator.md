@@ -8,6 +8,7 @@ description: |
 tags:
   - Python
   - Computation Theory
+archived: true
 ---
 
 Writing a Python program to create a finite state automaton (FSA) diagram is a fascinating journey into the world of computational theory—a domain where abstract mathematical concepts become concrete through code. Here's how the learning experience unfolds:

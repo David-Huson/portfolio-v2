@@ -10,15 +10,15 @@ import Pill from '../../components/Pill.astro';
 import { formatDate } from '../../utils/date';
 
 interface Props {
-	entry: CollectionEntry<'projects'>;
+	entry: CollectionEntry<'writing'>;
 }
 
-// This is a dynamic route that generates a page for every Markdown file in src/content/
-// Read more about dynamic routes and this `getStaticPaths` function in the Astro docs:
-// https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
+// Drafts still get a page while developing, but never in the production build.
 export async function getStaticPaths() {
-	const projects = await getCollection('projects');
-	return projects.map((entry) => ({
+	// Astro 3 returns `undefined` for a collection with no entries yet.
+	const posts =
+		(await getCollection('writing', ({ data }) => !data.draft || !import.meta.env.PROD)) ?? [];
+	return posts.map((entry) => ({
 		params: { slug: entry.slug },
 		props: { entry },
 	}));
@@ -33,17 +33,27 @@ const { Content } = await entry.render();
 		<div class="stack gap-15">
 			<header>
 				<div class="wrapper stack gap-2">
-					<a class="back-link" href="/projects/"><Icon icon="arrow-left" /> Projects</a>
+					<a class="back-link" href="/writing/"><Icon icon="arrow-left" /> Writing</a>
 					<Hero title={entry.data.title} align="start">
 						<div class="details">
 							<div class="tags">
 								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
 							</div>
 							<div class="stack gap-2">
-								<p class="date">
+								<p class="dates">
 									<time datetime={entry.data.publishDate.toISOString()}>
 										{formatDate(entry.data.publishDate)}
 									</time>
+									{
+										entry.data.updatedDate && (
+											<span>
+												{' · Updated '}
+												<time datetime={entry.data.updatedDate.toISOString()}>
+													{formatDate(entry.data.updatedDate)}
+												</time>
+											</span>
+										)
+									}
 								</p>
 								<p class="description">{entry.data.description}</p>
 							</div>
@@ -52,11 +62,8 @@ const { Content } = await entry.render();
 				</div>
 			</header>
 			<main class="wrapper">
-				<div class="stack gap-10 content">
-					{entry.data.img && <img width="100%" height="100%" src={entry.data.img} alt={entry.data.img_alt || ''} />}
-					<div class="content">
-						<Content />
-					</div>
+				<div class="content">
+					<Content />
 				</div>
 			</main>
 		</div>
@@ -89,7 +96,7 @@ const { Content } = await entry.render();
 		flex-wrap: wrap;
 	}
 
-	.date {
+	.dates {
 		font-size: var(--text-sm);
 		color: var(--gray-300);
 	}
@@ -117,13 +124,6 @@ const { Content } = await entry.render();
 	}
 
 	.content :global(img) {
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-sm);
-		background: var(--gradient-subtle);
-		border: 1px solid var(--gray-800);
-	}
-
-	.content :global(video) {
 		border-radius: 1.5rem;
 		box-shadow: var(--shadow-sm);
 		background: var(--gradient-subtle);
@@ -168,6 +168,5 @@ const { Content } = await entry.render();
 		.content :global(blockquote) {
 			font-size: var(--text-2xl);
 		}
-
 	}
 </style>

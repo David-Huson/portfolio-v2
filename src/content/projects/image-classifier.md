@@ -10,6 +10,7 @@ tags:
   - Python
   - Computer Vision
   - Machine Learning
+archived: true
 ---
 
 ## What is a Convolutional Neural Network?

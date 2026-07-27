@@ -8,9 +8,12 @@ import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
 
-const projects = (await getCollection('projects')).sort(
+const allProjects = (await getCollection('projects')).sort(
 	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
+
+const projects = allProjects.filter((project) => !project.data.archived);
+const archivedProjects = allProjects.filter((project) => project.data.archived);
 ---
 
 <BaseLayout
@@ -24,15 +27,34 @@ const projects = (await getCollection('projects')).sort(
 				tagline="See my most recent projects below to get an idea of my past experience."
 				align="start"
 			/>
-			<Grid variant="offset">
-				{
-					projects.map((project) => (
-						<li>
-							<PortfolioPreview project={project} />
-						</li>
-					))
-				}
-			</Grid>
+			{
+				projects.length > 0 && (
+					<Grid variant="offset">
+						{projects.map((project) => (
+							<li>
+								<PortfolioPreview project={project} />
+							</li>
+						))}
+					</Grid>
+				)
+			}
+			{
+				archivedProjects.length > 0 && (
+					<section class="archive stack gap-8">
+						<header class="archive-header stack gap-2">
+							<h2>Earlier / academic work</h2>
+							<p>These are undergraduate coursework projects, kept here for reference.</p>
+						</header>
+						<Grid variant="offset">
+							{archivedProjects.map((project) => (
+								<li>
+									<PortfolioPreview project={project} />
+								</li>
+							))}
+						</Grid>
+					</section>
+				)
+			}
 			<p>
 				To see more of my work, check out my <a class="link" href="https://github.com/David-Huson">GitHub</a>
 			</p>
@@ -40,3 +62,30 @@ const projects = (await getCollection('projects')).sort(
 		<ContactCTA />
 	</div>
 </BaseLayout>
+
+<style>
+	.archive {
+		padding-top: 2.5rem;
+		border-top: 1px solid var(--gray-800);
+	}
+
+	.archive-header {
+		color: var(--gray-400);
+		font-size: var(--text-sm);
+	}
+
+	.archive-header h2 {
+		font-size: var(--text-lg);
+		color: var(--gray-300);
+	}
+
+	@media (min-width: 50em) {
+		.archive-header {
+			font-size: var(--text-md);
+		}
+
+		.archive-header h2 {
+			font-size: var(--text-xl);
+		}
+	}
+</style>
