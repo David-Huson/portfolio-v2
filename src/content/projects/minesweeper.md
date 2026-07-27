@@ -12,25 +12,13 @@ tags:
 archived: true
 ---
 
-## The Challenge
+## The problem
 
-Developing a Minesweeper game is a classic exercise that tests the boundaries of logic and skill in programming. My latest project, part of a rigorous Data Structures and Algorithms (DSA) course, was no exception. The twist? It required a recursive algorithm, all implemented in the robust C++ language.
+This was a console Minesweeper for a Data Structures and Algorithms course. Most of the game is bookkeeping: read a board from a file, print it, take a click or a flag command, check whether the player hit a mine. The one part that needs an actual algorithm is the reveal.
 
-## The Requirements
+When a player clicks a cell with at least one adjacent mine, you show the count and stop. When they click a cell with zero adjacent mines, there is nothing to warn them about, so the whole contiguous region of zero-count cells should open at once, along with the numbered cells that border it. Opening one cell per click there would be busywork for the player.
 
-The project had clear requirements:
-
-1. **User Interaction**: The program starts by asking for an input file. This input file constructs the game board.
-2. **Error Handling**: If the file can’t be read, an error message prompts a retry.
-3. **Gameplay Mechanics**:
-    - The current board status is displayed, and the user is asked for the next move.
-    - Moves include clicking a cell (e.g., `c 2 3`) or toggling a flag (e.g., `f 6 0`).
-    - Both upper and lower case commands are valid.
-    - Error messages handle wrong commands or invalid cell interactions.
-
-## Sample Board Display
-
-Minesweeper's appeal partly lies in its simplicity. The board - a grid of cells, some hiding mines (indicated by an asterisk '*'), and others safe. Here’s a peek at how a board looks mid-game:
+Mid-game the board looks like this, with revealed counts, blanks for opened zero cells, and flags the player has placed:
 
 ```lua
     0   1   2   3
@@ -45,21 +33,36 @@ Minesweeper's appeal partly lies in its simplicity. The board - a grid of cells,
   +---+---+---+---+
 ```
 
-## The Recursive Twist
+## The key decision
 
-Recursive algorithms are at the heart of this project. When a cell is clicked, the program recursively reveals adjacent cells if they're free of mines, elegantly unfolding the safe areas of the board in a domino effect. This critical piece of logic not only adds efficiency to the code but also a satisfying reveal to the gameplay.
+I wrote the reveal as a recursive flood fill over the 8-neighborhood. Reveal the clicked cell; if its adjacent-mine count is zero, call the same function on all eight neighbors that are in bounds and not already revealed. Cells with a nonzero count get revealed but do not recurse, which is what makes the region stop growing at the numbered border.
 
-## The Learning Curve
+Illustrative sketch of the shape of it (not the project's actual code):
 
-Tackling this project sharpened my skills in several areas:
+```cpp
+void reveal(Board& b, int r, int c) {
+    if (!inBounds(b, r, c)) return;
+    if (b.revealed[r][c] || b.flagged[r][c]) return;
 
-- **File I/O**: Reading from an input file taught me the importance of robust file handling.
-- **Error Handling**: Implementing comprehensive error messages refined my approach to user experience.
-- **Recursion**: The recursive reveal algorithm was a deep dive into efficiency and logic.
-- **User Interface**: Crafting a clear and interactive console-based UI tested my design skills.
+    b.revealed[r][c] = true;
+    if (b.adjacentMines[r][c] != 0) return;   // border of the region
 
-## Conclusion
+    for (int dr = -1; dr <= 1; ++dr)
+        for (int dc = -1; dc <= 1; ++dc)
+            if (dr || dc) reveal(b, r + dr, c + dc);
+}
+```
 
-From recursive algorithms to user interface design, this Minesweeper project has been a comprehensive exercise in applying DSA principles in C++. It has reinforced my understanding of recursion, while also challenging me to think about user interaction and program robustness. As I continue my journey in computer science, these skills are not just achievements, but also tools that will propel me toward more complex and fascinating challenges.
+The two guards at the top do the real work. Marking a cell revealed before recursing is what terminates the fill, since an already-revealed cell returns immediately and a region can't be re-entered.
+
+## The tradeoff
+
+Recursion here is call-stack recursion, so every pending cell is a stack frame. A large connected region of zero-count cells recurses to a depth proportional to the size of that region, and in the worst case (a board with very few mines) that is O(rows × cols) frames live at once. Each frame carries the board reference, the coordinates, and the loop counters. On a big enough board this overflows the stack, and it fails as a crash rather than as a wrong answer.
+
+The standard fix is to keep an explicit stack or queue and run the fill iteratively as DFS or BFS. The frontier then lives on the heap, where you can grow it well past the thread's stack limit. I did not do that, because the assignment's boards were small enough that the recursive version never came close to the limit, and the recursive form is short enough to check by reading it.
+
+## Outcome
+
+The game works: it loads a board from a file, handles click and flag commands in either case, rejects bad input, and reveals contiguous safe regions in one move. The recursion is a handful of lines and the depth limit is the only thing about it I would change if the boards got larger.
 
 To learn more about this project, check out the <a href="https://github.com/David-Huson/Minesweeper">GitHub Repo</a>

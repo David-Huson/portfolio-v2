@@ -11,24 +11,22 @@ tags:
 archived: true
 ---
 
-Writing a Python program to create a finite state automaton (FSA) diagram is a fascinating journey into the world of computational theory—a domain where abstract mathematical concepts become concrete through code. Here's how the learning experience unfolds:
+## The problem
 
-**Diving into Finite State Automata**
-An FSA is a model of computation that can be in one of a finite number of states at any given time. It's fundamental in understanding how computers process patterns and languages. By feeding a string of symbols into the FSA, it transitions between states according to a set of rules, leading to a determination of whether the string is accepted by the automaton's criteria. This journey begins with grasping the basics of deterministic finite automata (DFA), where each state has a singular, predictable path for each input from the alphabet.
+A finite state automaton is easy to write down as text and hard to read that way. For this course project I had to take an input string describing an FSA's state transitions, parse it into states and transitions, and draw the corresponding state diagram: circles for states, arrows for transitions.
 
-**Exploring Python and Tkinter**
-Python emerges as a beacon of readability and efficiency, making it the ideal language to implement FSAs. Then comes Tkinter, Python's de-facto standard GUI (Graphical User Interface) package. It might not be the newest or the flashiest, but its simplicity and wide availability make it a reliable tool for creating visual representations. Learning Tkinter involves understanding widgets, event handling, and the canvas, which is crucial for drawing the state diagram.
+The parsing half is mechanical. The drawing half is not, because the text description says nothing about where anything goes on screen.
 
-**The Intersection with Grammars and Alphabets**
-In the theory of computation, alphabets are the building blocks of strings, and grammars are the sets of rules that describe how strings are formed. Delving into grammars leads to the discovery of patterns and structure within languages, both natural and programming. The significance of alphabets and grammars becomes apparent as they define the boundaries and possibilities for state transitions within the FSA.
+## The decision
 
-**The Programming Challenge**
-The real challenge begins with translating these theoretical concepts into a Python program. Writing the code requires a meticulous approach to parsing the input string representing state transitions. Each character must be accounted for, and each state and transition must be mapped accurately. The program must then utilize Tkinter to bring the static data to life, drawing states as circles and transitions as arrows, making the abstract concept of computation visually understandable.
+I used Python with Tkinter's canvas for the rendering. Tkinter ships with the standard library, so the program runs on any Python install without a package manager step, and the canvas gives you exactly the primitives a state diagram needs: ovals, lines, arrowheads, and text.
 
-**The Educational Outcome**
-This project is not just a lesson in Python or automata theory; it's a multi-disciplinary experience. It solidifies one’s understanding of computational theory principles, improves programming skills, and enhances problem-solving abilities. The beauty of watching a Tkinter window pop up with a colorful FSA diagram that was just a concept on paper is immensely satisfying. It's an embodiment of the theory of computation in action, serving as a reminder of how languages, patterns, and states are omnipresent in the digital world.
+## The tradeoff
 
-**Reflecting on the Process**
-In retrospect, the process is empowering. It demonstrates that with Python and Tkinter, one can visualize complex theories and make learning interactive. The significance of determinate FSAs, grammars, and alphabets in the theory of computation is not just academic; they are crucial to understanding how computers and languages work, forming a bridge between the abstract and the practical.
+Tkinter is dated, and the canvas is a low-level drawing surface rather than a graph renderer. It has no notion of a node or an edge, so placing states and routing arrows between them is my code's problem. A real layout engine like graphviz solves that properly: it spaces nodes to avoid overlap and routes edges around them. My placement is crude by comparison, and it will look worse the more states you give it. In exchange the project has no dependencies to install and nothing to break.
+
+## Outcome
+
+The program reads an FSA description and opens a window with the diagram drawn from it. It does what the assignment asked, and the layout is the part I would replace first.
 
 To learn more about this project, check out the <a href="https://github.com/David-Huson/COP4020-ProgrammingLanguages/tree/main/project3">GitHub Repo</a>
