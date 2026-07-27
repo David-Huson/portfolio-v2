@@ -2,9 +2,9 @@
 title: Python FSA Generator
 publishDate: 2023-11-2 14:40:00
 img: /assets/fsa-generator-thumbnail.webp
-img_alt: Thumbnail for the python FSA generator project.
+img_alt: Illustration of a monitor showing a colorful state-transition diagram flanked by code listings, with a Python logo on the desk.
 description: |
-  A project assigned to illustrate the complexity of writing an efficient compiler and intermediate representation code generator.
+  A Python and Tkinter tool that parses a finite state automaton description and draws its state diagram.
 tags:
   - Python
   - Computation Theory

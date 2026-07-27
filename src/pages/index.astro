@@ -31,14 +31,21 @@ const projects = (await getCollection('projects'))
 			<header class="hero">
 				<Hero
 					title="Hello, my name is David Huson"
-					tagline="I'm an aspiring Software Engineer based in Pensacola, Florida"
+					tagline="I'm a Lead Software Engineer building healthcare data platforms in Fort Worth, Texas"
 					align="start"
 				>
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="student" size="1.33em" /> Student</Pill>
-						<Pill><Icon icon="brain" size="1.33em" /> Innovator</Pill>
+						<Pill><Icon icon="code" size="1.33em" /> Lead Software Engineer</Pill>
+						<Pill><Icon icon="strategy" size="1.33em" /> Data Platforms</Pill>
+						<Pill><Icon icon="brain" size="1.33em" /> Healthcare</Pill>
 					</div>
+					<p class="current-work">
+						I lead data platform work at a healthcare company, building HIPAA-compliant pipelines
+						on AWS — event-driven ingestion with Lambda, SQS, and ECS, long-running services in
+						Kotlin, and a PostgreSQL/Supabase warehouse modeled with Kimball star schemas. Most
+						of my time goes to replacing fragile, manual data processes with automated ones that
+						can fail safely and recover.
+					</p>
 				</Hero>
 
 				<img
@@ -116,6 +123,13 @@ const projects = (await getCollection('projects'))
 
 	.roles {
 		display: none;
+	}
+
+	.hero :global(.current-work) {
+		margin-top: 1rem;
+		max-width: 60ch;
+		font-size: var(--text-md);
+		color: var(--gray-300);
 	}
 
 	.hero img {

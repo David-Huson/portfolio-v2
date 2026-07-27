@@ -2,7 +2,7 @@
 title: C Recursive Descent Parser
 publishDate: 2023-11-2 10:55:00
 img: /assets/recursive-descent.webp
-img_alt: Thumbnail for the recursive descent parser project.
+img_alt: Illustration of a parse tree drawn as branching circuit-like paths in a window titled Recursive Descent Parser and Intermediate Representation, with code and diagrams behind it.
 description: |
   A project assigned to illustrate the complexity of writing an efficient compiler and intermediate representation code generator.
 tags:

@@ -2,7 +2,7 @@
 title: Python-Lisp FSA parser
 publishDate: 2022-04-21 18:48:00
 img: /assets/xlisp-fsa.webp
-img_alt: Horse on the left and human on the right with a bright green and blue background. Text in the front that asks, horse or human?
+img_alt: Stylized illustration of an isometric state-machine diagram labeled xLisp, surrounded by Lisp code snippets and small transition graphs.
 description: |
   A project developed to explore the world of code generation and finite state automata.
 tags:

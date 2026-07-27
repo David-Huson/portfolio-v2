@@ -2,9 +2,9 @@
 title: Mastering Recursion in Minesweeper
 publishDate: 2022-04-21 18:48:00
 img: /assets/minesweeper.webp
-img_alt: Horse on the left and human on the right with a bright green and blue background. Text in the front that asks, horse or human?
+img_alt: Illustration of a desktop computer displaying a Minesweeper board with numbered cells, flags, and revealed mines, surrounded by code editor windows.
 description: |
-  A project developed to explore the world of code generation and finite state automata.
+  A console Minesweeper game in C++ built around a recursive flood-fill reveal algorithm.
 tags:
   - C++
   - Data Structures and Algorithms
