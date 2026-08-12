@@ -6,7 +6,7 @@ import Hero from '../components/Hero.astro';
 import Pill from '../components/Pill.astro';
 ---
 
-<BaseLayout title="About | David Huson" description="About Huson">
+<BaseLayout title="About | David Huson" description="About David Huson, Lead Software Engineer building healthcare data platforms in Fort Worth, Texas">
 	<div class="stack gap-20">
 		<main class="wrapper about">
 			<Hero
@@ -17,7 +17,7 @@ import Pill from '../components/Pill.astro';
 					width="1553"
 					height="873"
 					src="/assets/about-hero.webp"
-					alt="Jeanine White at projects with a colleague"
+					alt="David Huson taking a selfie with a companion in front of a colorful mural of a black horse, ocean waves, and wildlife"
 				/>
 			</Hero>
 
@@ -25,15 +25,20 @@ import Pill from '../components/Pill.astro';
 				<h2 class="section-title">Background</h2>
 				<div class="content">
 					<p>
-						I am a Computer Science student at the University of West Florida (UWF), with a concentration in Artificial Intelligence and Software Engineering. Some of the things im passionate about in this industry include computer vision, human-macine interfaces, and automated reasoning.
+						I'm a Lead Software Engineer at a healthcare company in Fort Worth, Texas, where I build
+						HIPAA-compliant data platforms: event-driven pipelines on AWS (Lambda, SQS, ECS),
+						long-running services in Kotlin, and PostgreSQL/Supabase warehousing modeled with
+						Kimball star schemas. The common thread in my work is taking manual, error-prone data
+						processes and turning them into automated systems that are auditable and recover
+						cleanly from failure.
 					</p>
 					<br />
 					<p>
-						Other than software engineering, I'm passionate about cooking and sharing good food with the people I love. I also like to play videogames when I have the time, thought there hasnt been much of that recently. 
-					</p>
-					<br />
-					<p>
-						I also love learning outside of what im taught in class. I spend a lot of time (maybe too much) wathing educational YouTube videos. Addiionally, I love sharing my knowledge with others. When someone has an issue, I often find myself helping them debug it and coaching them through how to avoid it in the future if I have the knowledge to do so.
+						Outside of software, I'm passionate about cooking and sharing good food with the people
+						I love, and I play video games when I can find the time. I spend a lot of time (maybe
+						too much) watching educational YouTube videos, and I enjoy passing knowledge along —
+						when someone on my team hits a wall, I'd rather debug it with them and talk through how
+						to avoid it next time than just hand over a fix.
 					</p>
 				</div>
 			</section>
@@ -41,38 +46,25 @@ import Pill from '../components/Pill.astro';
 				<h2 class="section-title">Education</h2>
 				<div class="content">
 					<h5>University of West Florida</h5>
-					<p>Computer Science B.S.C.E</p>
-					<p>Some of the courses I've taken include:</p>
-					<ul>
-						<li>Introduction to AI</li>
-						<li>Introduction to Big Data Analytics</li>
-						<li>Database Design and Development</li>
-						<li>Data Structures and Algorithms 1</li>
-						<li>And more...</li>
-					</ul>
+					<p>B.S. in Computer Science, with a concentration in Artificial Intelligence and Software Engineering.</p>
 					<br />
-					<p>The amount of knowledge gained from these courses is almost inumerable. Ill try to touch on some of the highlights here.</p>
-					<br />
-					<p>From <strong>Intro to AI</strong> I learned about the history of AI, and some of the basic forms of AI which we take advantage of daily. Including Search Algorithms, knowledge Representations, and Machine Learning. I also learned a lot from the project I completed with the help of Joel Ward. We chose to create an <a target="_self" href="https://www.davidhuson.dev/projects/image-classifier">Image Classifier</a> in python using Tenforflow and Keras. See my <a target="_self" href="https://www.davidhuson.dev/projects/image-classifier">blog post</a> for more details.</p>
-					<br />
-					<p>From <strong>Intro to Big Data</strong> I learned how to use Spark and Scala to interface with Hadoop and process large ammounts of real-time data. This was a bit of a callenge since it was my first venture into the world of functional programming. But I learned to like it, and I definetly see the benefit of it for the processing of large amounts of raw data.</p>
-					<br />
-					<p>From <strong>Database Design and Development</strong> I learned how to design and develop databases, as well as learning how to craft complex queries to pull the necessary data from those databases.</p>
-					<br />
-					<p><strong>Data Structures and Algorims</strong> taught me how to analyze algoroithms for their complexity in both space and time. It also taught me how to choose which algoroithm to use for different situations. One of the big takeaways from this course was how to use Test Driven Development.</p>
+					<p>
+						Some of the coursework from that time still lives in the
+						<a target="_self" href="/projects/">projects archive</a> on this site — a C++
+						Minesweeper, a recursive descent parser in C, and an image classifier built with
+						TensorFlow and Keras, among others.
+					</p>
 				</div>
 			</section>
 			<section>
 				<h2 class="section-title">Skills</h2>
-				<!-- <div class="content">
-					Object Oriented Programming, Test Driven Development, Project Management, Leadership, Training
-				</div> -->
 				<div class="skills">
-					<Pill>Object Oriented Programming</Pill>
-					<Pill>Test Driven Development</Pill>
-					<Pill>Project Management</Pill>
-					<Pill>Leadership</Pill>
-					<Pill>Training</Pill>
+					<Pill>Kotlin</Pill>
+					<Pill>AWS (Lambda, SQS, ECS)</Pill>
+					<Pill>PostgreSQL / Supabase</Pill>
+					<Pill>Dimensional Modeling</Pill>
+					<Pill>HIPAA Compliance</Pill>
+					<Pill>Event-Driven Architecture</Pill>
 				</div>
 			</section>
 		</main>

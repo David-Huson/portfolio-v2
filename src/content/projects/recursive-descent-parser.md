@@ -2,45 +2,59 @@
 title: C Recursive Descent Parser
 publishDate: 2023-11-2 10:55:00
 img: /assets/recursive-descent.webp
-img_alt: Thumbnail for the recursive descent parser project.
+img_alt: Illustration of a parse tree drawn as branching circuit-like paths in a window titled Recursive Descent Parser and Intermediate Representation, with code and diagrams behind it.
 description: |
   A project assigned to illustrate the complexity of writing an efficient compiler and intermediate representation code generator.
 tags:
   - C
   - Parser
   - Static Analysis
+archived: true
 ---
 
-### The Journey
+## The problem
 
-Writing a recursive descent parser in C can be a remarkably educational experience, especially for someone transitioning from a C++ background. Unlike C++, C requires more meticulous memory management and a different approach to data structures, like strings and hash tables. Here is an exploration of that learning journey, touching on the key concepts you mentioned.
+For a programming languages course I had to build a front end for a small language: tokenize the input, check that the token sequence fits the grammar, track identifiers in a symbol table, and report whether the program is legal. A follow-on part of the same project extended the parser to emit an intermediate representation with simulated register allocation for the same grammar. The input could contain comments and statements that spanned multiple lines, and syntax errors had to be reported rather than silently skipped.
 
-### The Shift from C++ to C
+The constraint that shaped everything was the language: C, not C++. I had been writing C++, where the STL gives you `std::string`, `std::unordered_map`, and containers that manage their own memory. In C, identifiers are `char*` buffers I allocate with `malloc` and free myself, comparison is `strcmp`, and there is no map type at all.
 
-C++ offers a high level of abstraction, especially with its Standard Template Library (STL). Moving from C++ to C, one must adapt to a lower-level programming paradigm. Strings, which are first-class citizens in C++, are replaced with `char*` in C, requiring manual management. This means allocating memory for strings with `malloc`, handling their own deallocation with `free`, and being careful with buffer overflows and memory leaks. The lack of built-in string operations in C means that tasks like concatenation, comparison, and searching require custom functions. This can be challenging but also enlightening, as it necessitates a deeper understanding of how data is represented and manipulated at a fundamental level.
+## The grammar
 
-### Grammars and Recursive Descent Parsers
+The language is a block of assignment statements over integer arithmetic. In EBNF, one production per parser function:
 
-Grammars are the foundation of language processing. They define the syntax of a language in a set of rules, which the parser uses to recognize whether a sequence of tokens conforms to the language. Recursive descent parsers, which are a type of top-down parser, implement these grammar rules as a set of recursive functions. Writing a recursive descent parser in C is a hands-on way to understand the mechanics of parsing and the structure of languages.
+```
+program    → 'begin' statement { statement } 'end' '.'
+statement  → identifier '=' expression ';'
+expression → term { ('+' | '-') term }
+term       → factor { ('*' | '/') factor }
+factor     → identifier | number | '(' expression ')'
+```
 
-### Static Analysis and Intermediate Representations
+At the lexical level, numbers are unsigned integer literals, and an identifier starts with a letter followed by letters, digits, and underscores — with no consecutive underscores and no trailing underscore, so `a_b_7` is legal while `e__7` and `abc_` are not. Comments run from a tilde (`~`) to the end of the line, and statements can span lines or share one.
 
-Static analysis involves examining code without executing it. Part of this process is to convert code into an intermediate representation (IR) that abstracts away some of the details of the source language but retains its computational properties. Implementing IR can teach you a lot about the computational semantics of programming languages and the design of compilers and interpreters.
+The nesting in the grammar is what encodes precedence: `expression` is built from `term`s joined by `+`/`-`, and `term` from `factor`s joined by `*`/`/`, so multiplication binds tighter than addition without any explicit precedence table. Parentheses re-enter `expression` from `factor` to override it.
 
-### Symbol Tables and Hash Tables
+## The key decision
 
-In compiler design, symbol tables are crucial for keeping track of identifiers and their attributes. Implementing a symbol table from scratch in C often leads to choosing a hash table for its efficiency in look-up operations. Designing a hash table involves understanding hashing functions, collision resolution strategies, and dynamic resizing, which are fundamental concepts in computer science.
+I wrote the parser as recursive descent: one function per nonterminal, each responsible for consuming the tokens its production allows and calling the functions for the nonterminals on its right-hand side. The call stack does the work a parse tree would otherwise do, so the parser's control flow reads like the grammar itself. That matters when the grammar is small and hand-written, and it avoids pulling in a parser generator or building an explicit tree just to walk it once.
 
-### Register Allocation Simulation
+For the symbol table I hand-rolled a hash table: a hash function over the identifier string, an array of buckets, and chaining for collisions. This was not a design choice so much as a consequence of C having no standard associative container. Lookup happens on every identifier reference, so a linear scan over a list would have been the lazy alternative and a hash table was worth the extra code.
 
-Simulating register allocation as part of the IR process involves assigning variables to a limited number of registers. This is a complex problem in compiler design, often involving graph coloring algorithms to handle live variable analysis and spill code generation. Implementing this in C requires careful data structure management and algorithmic design.
+## The tradeoff
 
-### Project Description
+Recursive descent is easy to read and easy to step through in a debugger, and it costs you generality. It cannot parse a left-recursive production without rewriting the grammar, since the function would call itself before consuming a token. It commits to a decision using limited lookahead, so ambiguity in the grammar has to be resolved by hand rather than by the parsing algorithm. And every change to the grammar is a change to the C source, where a generated parser would just be regenerated. For a small fixed grammar in a course project, none of those bite; for a language that keeps growing, they would.
 
-The parser project described presents a real-world application of these concepts. It requires a lexer to tokenize the input, a parser to analyze the syntax, and a symbol table to track identifiers, with a suggestion to implement the symbol table as a hash table for efficiency. The project's constraints, such as handling comments, multi-line statements, and reporting errors, add layers of complexity that simulate the challenges faced in professional compiler construction.
+## Error recovery
 
-### Conclusion
+Any recursive descent parser has to decide what to do when the current token doesn't match what the production expects. The two usual answers:
 
-This journey of implementing a parser and an IR with register allocation simulation in C, especially coming from a C++ background, is a deep dive into the fundamentals of programming languages and compilers. It's a challenging but rewarding experience that hones problem-solving skills and deepens one's understanding of both high-level and low-level programming concepts.
+- **Report and halt.** Print the error with its line number and stop. Simple to implement, and the reported error is always the real one, but the user only ever sees the first mistake in their file.
+- **Panic-mode synchronization.** Report the error, then discard tokens until reaching one in a synchronizing set (a statement terminator, a closing delimiter, a keyword that can only start a new statement), and resume parsing from there. The user sees more of their errors in one pass, at the cost of cascading false positives when the parser resynchronizes in the wrong place.
+
+I chose report-and-halt. All error reporting funnels through the parser's single `match()` function: when the lookahead token doesn't match what the production expects, it prints a message specific to the expected token — a missing closing parenthesis, a missing `begin` or `end`, a statement without its terminating semicolon, an assignment without `=` — always with the line and column where the mismatch was detected, then frees the symbol table and exits. One error per run, but it is always a real error with a precise location, and there are no cascading false positives to explain. If the whole input parses, the program prints `Success!` and dumps every identifier recorded in the symbol table.
+
+## Outcome
+
+The result is a working lexer, parser, and hash-table symbol table in C, extended in the project's second part into an IR emitter with simulated register allocation (three-address statements over virtual registers `R0, R1, …`). It handles comments and multi-line statements and reports syntax errors with line and column. It is a coursework front end, not a compiler: there is no optimization pass and the register allocation is simulated rather than targeting real hardware.
 
 To learn more about this project, check out the <a href="https://github.com/David-Huson/COP4020-ProgrammingLanguages/tree/main/project1">GitHub Repo</a>
