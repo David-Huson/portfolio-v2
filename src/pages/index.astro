@@ -1,269 +1,89 @@
 ---
-import { getCollection } from 'astro:content';
-
-// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
-import BaseLayout from '../layouts/BaseLayout.astro';
-
-// Component Imports
-import CallToAction from '../components/CallToAction.astro';
-import Grid from '../components/Grid.astro';
-import Hero from '../components/Hero.astro';
-import Icon from '../components/Icon.astro';
-import Pill from '../components/Pill.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
-
-// Page section components
-import ContactCTA from '../components/ContactCTA.astro';
-import Skills from '../components/Skills.astro';
-
-// Content Fetching: List four most recent projects projects
-const allProjects = (await getCollection('projects')).sort(
-	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectPreview from "../components/ProjectPreview.astro";
+import SystemDiagram from "../components/SystemDiagram.astro";
+const projects = await getCollection("projects");
+const parser = projects.find(
+  (project) => project.slug === "recursive-descent-parser",
 );
-const currentProjects = allProjects.filter((project) => !project.data.archived);
-// Until there are current projects to show, fall back to the archive so the
-// section never renders as an empty grid.
-const projects = (currentProjects.length > 0 ? currentProjects : allProjects).slice(0, 4);
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
+const selected = projects.filter((project) =>
+  ["image-classifier", "python-lisp-fsa"].includes(project.slug),
+);
 ---
 
 <BaseLayout>
-	<div class="stack gap-20 lg:gap-48">
-		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero">
-				<Hero
-					title="Hello, my name is David Huson"
-					tagline="I'm a Lead Software Engineer building healthcare data platforms in Fort Worth, Texas"
-					align="start"
-				>
-					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Lead Software Engineer</Pill>
-						<Pill><Icon icon="strategy" size="1.33em" /> Data Platforms</Pill>
-						<Pill><Icon icon="brain" size="1.33em" /> Healthcare</Pill>
-					</div>
-					<p class="current-work">
-						I lead data platform work at a healthcare company, building HIPAA-compliant pipelines
-						on AWS — event-driven ingestion with Lambda, SQS, and ECS, long-running services in
-						Kotlin, and a PostgreSQL/Supabase warehouse modeled with Kimball star schemas. Most
-						of my time goes to replacing fragile, manual data processes with automated ones that
-						can fail safely and recover.
-					</p>
-				</Hero>
-
-				<img
-					alt="David Huson smiling in a gray jacket with a white building in the background."
-					width="480"
-					height="620"
-					src="/assets/portrait.webp"
-				/>
-			</header>
-
-			<Skills />
-		</div>
-
-		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected projects</h3>
-					<p>Take a look below at some of my featured projects from the past few years.</p>
-				</header>
-
-				<div class="gallery">
-					<Grid variant="offset">
-						{
-							projects.map((project) => (
-								<li>
-									<PortfolioPreview project={project} />
-								</li>
-							))
-						}
-					</Grid>
-				</div>
-
-				<div class="cta">
-					<CallToAction href="/projects/">
-						View All
-						<Icon icon="arrow-right" size="1.2em" />
-					</CallToAction>
-				</div>
-			</section>
-
-			<!-- <section class="section with-background bg-variant">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Mentions</h3>
-					<p>
-						I have been fortunate enough to recieve praise for my projects in several publications. Take
-						a look below to learn more.
-					</p>
-				</header>
-
-				<div class="gallery">
-					<Grid variant="small">
-						{
-							['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
-								<li class="mention-card">
-									<p>{brand}</p>
-								</li>
-							))
-						}
-					</Grid>
-				</div>
-			</section> -->
-		</main>
-
-		<ContactCTA />
-	</div>
+  <section class="journal-hero">
+    <aside class="folio" aria-label="Professional profile">
+      <span>David Huson</span><p>
+        Lead Software Engineer<br />Fort Worth, Texas
+      </p>
+    </aside><div>
+      <p class="kicker">Software / Data / Systems</p><h1>
+        Software, with a clear line of reasoning.
+      </h1><p class="lead">
+        I build healthcare data platforms. This is a record of the systems,
+        decisions, and tradeoffs behind my work.
+      </p><a class="action" href="#work"
+        >Explore the work <span aria-hidden="true">↓</span></a>
+    </div>
+  </section><section class="section" id="work" aria-labelledby="work-title">
+    <header class="section-head">
+      <h2 id="work-title">Selected studies</h2><p>
+        Earlier projects, with the decisions and limitations left in.
+      </p>
+    </header>{
+      parser && (
+        <article class="feature">
+          <div>
+            <>
+              <p class="meta">Earlier work · Language design · C</p>
+              <h3 class="feature-title">
+                When the grammar becomes the program.
+              </h3>
+              <p class="lead">
+                A small compiler front end. One function per grammar rule, with
+                explicit choices about memory, errors and scope.
+              </p>
+              <a class="action" href={`/projects/${parser.slug}/`}>
+                Read the case study <span aria-hidden="true">↗</span>
+              </a>
+            </>
+          </div>
+          {parser.data.diagram && (
+            <SystemDiagram diagram={parser.data.diagram} />
+          )}
+        </article>
+      )
+    }<ul class="story-list">
+      {
+        selected.map((project) => (
+          <li>
+            <ProjectPreview project={project} />
+          </li>
+        ))
+      }
+    </ul><a class="action" href="/projects/"
+      >All work <span aria-hidden="true">↗</span></a>
+  </section><section class="section scope" aria-labelledby="current-title">
+    <p class="kicker">Current practice</p><div class="scope-copy">
+      <h2 id="current-title">Data systems that can recover.</h2><p>
+        I lead data platform work at a healthcare company. That includes
+        event-driven ingestion on AWS, long-running Kotlin services, and
+        PostgreSQL/Supabase warehouses built around Kimball star schemas.
+      </p><p>
+        Much of that work replaces manual, error-prone processes with systems
+        that can be audited and recover cleanly from failure. Access control and
+        operational reliability shape the design from the start.
+      </p><a class="action" href="/about/"
+        >More about my work and background <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
 </BaseLayout>
-
 <style>
-	.hero {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2rem;
-	}
-
-	.roles {
-		display: none;
-	}
-
-	.hero :global(.current-work) {
-		margin-top: 1rem;
-		max-width: 60ch;
-		font-size: var(--text-md);
-		color: var(--gray-300);
-	}
-
-	.hero img {
-		aspect-ratio: 4 / 4;
-		object-fit: cover;
-		object-position: center;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
-	}
-
-	@media (min-width: 50em) {
-		.hero {
-			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
-			gap: 3.75rem;
-		}
-
-		.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			gap: 0.5rem;
-		}
-
-		.hero img {
-			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
-			object-fit: cover;
-			object-position: top;
-		}
-	}
-
-	/* ====================================================== */
-
-	.section {
-		display: grid;
-		gap: 2rem;
-	}
-
-	.with-background {
-		position: relative;
-	}
-
-	.with-background::before {
-		--hero-bg: var(--bg-image-subtle-2);
-
-		content: '';
-		position: absolute;
-		pointer-events: none;
-		left: 50%;
-		width: 100vw;
-		aspect-ratio: calc(2.25 / var(--bg-scale));
-		top: 0;
-		transform: translateY(-75%) translateX(-50%);
-		background: url('/assets/backgrounds/noise.png') top center/220px repeat,
-			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat, var(--gray-999);
-		background-blend-mode: overlay, normal, normal, normal;
-		mix-blend-mode: var(--bg-blend-mode);
-		z-index: -1;
-	}
-
-	.with-background.bg-variant::before {
-		--hero-bg: var(--bg-image-subtle-1);
-	}
-
-	.section-header {
-		justify-self: center;
-		text-align: center;
-		max-width: 50ch;
-		font-size: var(--text-md);
-		color: var(--gray-300);
-	}
-
-	.section-header h3 {
-		font-size: var(--text-2xl);
-	}
-
-	@media (min-width: 50em) {
-		.section {
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
-			gap: 5rem;
-		}
-
-		.section.with-cta {
-			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
-		}
-
-		.section-header {
-			grid-area: header;
-			font-size: var(--text-lg);
-		}
-
-		.section-header h3 {
-			font-size: var(--text-4xl);
-		}
-
-		.with-cta .section-header {
-			justify-self: flex-start;
-			text-align: left;
-		}
-
-		.gallery {
-			grid-area: gallery;
-		}
-
-		.cta {
-			grid-area: cta;
-		}
-	}
-
-	/* ====================================================== */
-
-	.mention-card {
-		display: flex;
-		height: 7rem;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		border: 1px solid var(--gray-800);
-		border-radius: 1.5rem;
-		color: var(--gray-300);
-		background: var(--gradient-subtle);
-		box-shadow: var(--shadow-sm);
-	}
-
-	@media (min-width: 50em) {
-		.mention-card {
-			border-radius: 1.5rem;
-			height: 9.5rem;
-		}
-	}
+  .feature-title {
+    font-size: clamp(2rem, 1.25rem + 2vw, 3.25rem);
+    margin: 1.25rem 0;
+    max-width: 18ch;
+  }
 </style>

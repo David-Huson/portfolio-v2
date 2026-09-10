@@ -1,138 +1,69 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-
-import ContactCTA from '../components/ContactCTA.astro';
-import Hero from '../components/Hero.astro';
-import Pill from '../components/Pill.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="About | David Huson" description="About David Huson, Lead Software Engineer building healthcare data platforms in Fort Worth, Texas">
-	<div class="stack gap-20">
-		<main class="wrapper about">
-			<Hero
-				title="About"
-				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
-			>
-				<img
-					width="1553"
-					height="873"
-					src="/assets/about-hero.webp"
-					alt="David Huson taking a selfie with a companion in front of a colorful mural of a black horse, ocean waves, and wildlife"
-				/>
-			</Hero>
-
-			<section>
-				<h2 class="section-title">Background</h2>
-				<div class="content">
-					<p>
-						I'm a Lead Software Engineer at a healthcare company in Fort Worth, Texas, where I build
-						HIPAA-compliant data platforms: event-driven pipelines on AWS (Lambda, SQS, ECS),
-						long-running services in Kotlin, and PostgreSQL/Supabase warehousing modeled with
-						Kimball star schemas. The common thread in my work is taking manual, error-prone data
-						processes and turning them into automated systems that are auditable and recover
-						cleanly from failure.
-					</p>
-					<br />
-					<p>
-						Outside of software, I'm passionate about cooking and sharing good food with the people
-						I love, and I play video games when I can find the time. I spend a lot of time (maybe
-						too much) watching educational YouTube videos, and I enjoy passing knowledge along —
-						when someone on my team hits a wall, I'd rather debug it with them and talk through how
-						to avoid it next time than just hand over a fix.
-					</p>
-				</div>
-			</section>
-			<section>
-				<h2 class="section-title">Education</h2>
-				<div class="content">
-					<h5>University of West Florida</h5>
-					<p>B.S. in Computer Science, with a concentration in Artificial Intelligence and Software Engineering.</p>
-					<br />
-					<p>
-						Some of the coursework from that time still lives in the
-						<a target="_self" href="/projects/">projects archive</a> on this site — a C++
-						Minesweeper, a recursive descent parser in C, and an image classifier built with
-						TensorFlow and Keras, among others.
-					</p>
-				</div>
-			</section>
-			<section>
-				<h2 class="section-title">Skills</h2>
-				<div class="skills">
-					<Pill>Kotlin</Pill>
-					<Pill>AWS (Lambda, SQS, ECS)</Pill>
-					<Pill>PostgreSQL / Supabase</Pill>
-					<Pill>Dimensional Modeling</Pill>
-					<Pill>HIPAA Compliance</Pill>
-					<Pill>Event-Driven Architecture</Pill>
-				</div>
-			</section>
-		</main>
-
-		<ContactCTA />
-	</div>
+<BaseLayout
+  title="About | David Huson"
+  description="David Huson is a Lead Software Engineer in Fort Worth, Texas, building healthcare data platforms and mentoring engineers."
+>
+  <header class="page-head">
+    <p class="kicker">About David</p><h1>Close to the work.</h1><p class="lead">
+      Lead Software Engineer. Healthcare data platforms.<br />Fort Worth, Texas.
+    </p>
+  </header><div class="about-layout">
+    <figure class="about-photo">
+      <img
+        src="/assets/portrait.webp"
+        width="480"
+        height="619"
+        alt="David Huson outdoors, with sunglasses on his head"
+      /><figcaption>
+        David Huson<br />Software engineer & systems builder
+      </figcaption>
+    </figure><div class="about-copy">
+      <section>
+        <h2>What I work on</h2><p>
+          I lead data platform work at a healthcare company. I build
+          event-driven ingestion on AWS with Lambda, SQS and ECS, long-running
+          services in Kotlin, and PostgreSQL/Supabase warehouses modeled with
+          Kimball star schemas.
+        </p><p>
+          The common thread is replacing fragile manual data processes with
+          automated systems that can be audited and recover from failure. In a
+          healthcare setting, access control, audit logging and authentication
+          are design constraints from the start.
+        </p>
+      </section><section>
+        <h2>How I work with people</h2><p>
+          When someone on my team hits a wall, I'd rather debug it with them and
+          talk through the reasoning than hand over a fix. Understanding why
+          something failed is part of making the next attempt better.
+        </p>
+      </section><section>
+        <h2>Before this</h2><p>
+          I earned a B.S. in Computer Science at the University of West Florida,
+          with a concentration in Artificial Intelligence and Software
+          Engineering.
+        </p><p>
+          Some of that work lives in the <a href="/projects/">project archive</a
+          >: a compiler front end in C, a C++ Minesweeper, and an image
+          classifier built with TensorFlow and Keras.
+        </p>
+      </section><section>
+        <h2>Outside software</h2><p>
+          I enjoy cooking and sharing food with the people I love. I play video
+          games when I find the time and watch a lot of educational YouTube.
+        </p>
+      </section><section>
+        <h2>Stay in touch</h2><p>
+          <a href="mailto:dhuson@davidhuson.dev">Email me</a> or <a
+            href="https://www.linkedin.com/in/david-huson"
+            >connect on LinkedIn</a
+          >. For consulting and commercial work, visit <a
+            href="https://davidhuson.dev">David Huson Consulting</a
+          >.
+        </p>
+      </section>
+    </div>
+  </div>
 </BaseLayout>
-
-<style>
-	.skills {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-	}
-	
-	.about {
-		display: flex;
-		flex-direction: column;
-		gap: 3.5rem;
-	}
-
-	img {
-		margin-top: 1.5rem;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
-	}
-
-	section {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		color: var(--gray-200);
-	}
-
-	.section-title {
-		grid-column-start: 1;
-		font-size: var(--text-xl);
-		color: var(--gray-0);
-	}
-
-	.content {
-		grid-column: 2 / 4;
-	}
-
-	.content :global(a) {
-		text-decoration: 1px solid underline transparent;
-		text-underline-offset: 0.25em;
-		transition: text-decoration-color var(--theme-transition);
-	}
-
-	.content :global(a:hover),
-	.content :global(a:focus) {
-		text-decoration-color: currentColor;
-	}
-
-	@media (min-width: 50em) {
-		.about {
-			display: grid;
-			grid-template-columns: 1fr 60% 1fr;
-		}
-
-		.about > :global(:first-child) {
-			grid-column-start: 2;
-		}
-
-		section {
-			display: contents;
-			font-size: var(--text-lg);
-		}
-	}
-</style>

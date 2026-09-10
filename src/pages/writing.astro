@@ -1,113 +1,45 @@
 ---
-import { getCollection } from 'astro:content';
-
-import BaseLayout from '../layouts/BaseLayout.astro';
-
-import ContactCTA from '../components/ContactCTA.astro';
-import Hero from '../components/Hero.astro';
-import Grid from '../components/Grid.astro';
-import Pill from '../components/Pill.astro';
-import { formatDate } from '../utils/date';
-
-// Drafts are visible while developing, hidden in the production build.
-// Astro 3 returns `undefined` for a collection with no entries yet.
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { formatDate } from "../utils/date";
 const posts = (
-	(await getCollection('writing', ({ data }) => !data.draft || !import.meta.env.PROD)) ?? []
+  (await getCollection("writing", ({ data }) => !data.draft)) ?? []
 ).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---
 
-<BaseLayout title="Writing | David Huson" description="Notes and essays by David Huson">
-	<div class="stack gap-20">
-		<main class="wrapper stack gap-8">
-			<Hero
-				title="Writing"
-				tagline="Notes on the systems I build and the problems that made them interesting."
-				align="start"
-			/>
-			{
-				posts.length === 0 ? (
-					<p class="empty">Nothing published yet — check back soon.</p>
-				) : (
-					<Grid>
-						{posts.map((post) => (
-							<li>
-								<a class="card" href={`/writing/${post.slug}/`}>
-									<span class="title">{post.data.title}</span>
-									<time class="date" datetime={post.data.publishDate.toISOString()}>
-										{formatDate(post.data.publishDate)}
-									</time>
-									<p class="description">{post.data.description}</p>
-									{post.data.tags.length > 0 && (
-										<div class="tags">
-											{post.data.tags.map((t) => (
-												<Pill>{t}</Pill>
-											))}
-										</div>
-									)}
-								</a>
-							</li>
-						))}
-					</Grid>
-				)
-			}
-		</main>
-		<ContactCTA />
-	</div>
+<BaseLayout
+  title="Writing | David Huson"
+  description="Notes on software, data architecture, and the decisions behind David Huson's engineering work."
+>
+  <header class="page-head">
+    <p class="kicker">Engineering notes</p><h1>Writing</h1><p class="lead">
+      Notes on the systems I build and the problems that make them interesting.
+    </p>
+  </header>{
+    posts.length ? (
+      <ul class="story-list">
+        {posts.map((post) => (
+          <li class="section">
+            <p class="meta">
+              <time datetime={post.data.publishDate.toISOString()}>
+                {formatDate(post.data.publishDate)}
+              </time>
+            </p>
+            <h2>
+              <a href={`/writing/${post.slug}/`}>{post.data.title}</a>
+            </h2>
+            <p class="lead">{post.data.description}</p>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <div class="empty-note">
+        <p>
+          There are no published notes yet. For now, the{" "}
+          <a href="/projects/">project studies</a> contain the most detailed
+          accounts of my engineering decisions.
+        </p>
+      </div>
+    )
+  }<p class="section"><a href="/rss.xml">Subscribe via RSS</a></p>
 </BaseLayout>
-
-<style>
-	.empty {
-		color: var(--gray-300);
-	}
-
-	.card {
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-		height: 100%;
-		padding: 1.5rem;
-		background: var(--gradient-subtle);
-		border: 1px solid var(--gray-800);
-		border-radius: 0.75rem;
-		box-shadow: var(--shadow-sm);
-		text-decoration: none;
-		font-family: var(--font-body);
-		transition: box-shadow var(--theme-transition);
-	}
-
-	.card:hover,
-	.card:focus-within {
-		box-shadow: var(--shadow-md);
-	}
-
-	.title {
-		font-size: var(--text-lg);
-		font-weight: 500;
-		color: var(--gray-0);
-		line-height: 1.2;
-	}
-
-	.date {
-		font-size: var(--text-sm);
-		color: var(--gray-300);
-	}
-
-	.description {
-		color: var(--gray-200);
-	}
-
-	.tags {
-		display: flex;
-		gap: 0.5rem;
-		flex-wrap: wrap;
-		margin-top: auto;
-		padding-top: 0.5rem;
-	}
-
-	@media (min-width: 50em) {
-		.card {
-			border-radius: 1.5rem;
-			padding: 2rem;
-		}
-	}
-</style>

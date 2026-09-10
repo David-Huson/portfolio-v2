@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+const { project } = Astro.props;
+---
+
+<article class="preview">
+  <p class="meta">
+    {project.data.archived ? "Earlier work" : "Project"} · {
+      project.data.tags[0]
+    }
+  </p><h3><a href={`/projects/${project.slug}/`}>{project.data.title}</a></h3><p
+  >
+    {project.data.description}
+  </p><a class="action" href={`/projects/${project.slug}/`}
+    >Read the study <span aria-hidden="true">↗</span></a>
+</article>
+<style>
+  .preview {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+  }
+  .preview h3 {
+    margin-block: 0.75rem 1rem;
+  }
+  .preview h3 a {
+    text-decoration: none;
+  }
+  .preview h3 a:hover {
+    text-decoration: underline;
+  }
+  .preview > p:not(.meta) {
+    color: var(--muted);
+    max-width: 55ch;
+  }
+</style>

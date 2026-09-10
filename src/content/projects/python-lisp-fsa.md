@@ -4,12 +4,28 @@ publishDate: 2022-04-21 18:48:00
 img: /assets/xlisp-fsa.webp
 img_alt: Stylized illustration of an isometric state-machine diagram labeled xLisp, surrounded by Lisp code snippets and small transition graphs.
 description: |
-  A project developed to explore the world of code generation and finite state automata.
+  A Python generator that emits an xLisp finite-state simulator, with errors that cross the boundary between two languages.
 tags:
   - xLisp
   - Python
   - Computation Theory
 archived: true
+role: Course project author
+diagram:
+  title: Generating a program before evaluating it
+  caption: The Python generator emits Lisp source. The Lisp interpreter runs that source and evaluates the input symbols against the automaton.
+  steps:
+    - label: Description
+      detail: States, alphabet and transitions
+    - label: Python
+      detail: Generate Lisp source text
+    - label: xLisp
+      detail: Run the generated simulator
+    - label: Result
+      detail: Accept or reject a symbol sequence
+  annotation:
+    title: Where do errors appear?
+    body: A quoting or parenthesis mistake in generated source can be valid Python string handling. The error appears only when Lisp reads or executes the output, so debugging spans both stages.
 ---
 
 ## The problem

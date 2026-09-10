@@ -1,0 +1,122 @@
+---
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  diagram: NonNullable<CollectionEntry<"projects">["data"]["diagram"]>;
+}
+const { diagram } = Astro.props;
+---
+
+<figure class="diagram">
+  <p class="meta">{diagram.title}</p><ol
+    class="stages"
+    style={`--stage-count: ${diagram.steps.length}`}
+  >
+    {
+      diagram.steps.map(({ label, detail }) => (
+        <li>
+          <>
+            <strong>{label}</strong>
+            <span>{detail}</span>
+          </>
+        </li>
+      ))
+    }
+  </ol><figcaption>{diagram.caption}</figcaption>{
+    diagram.annotation && (
+      <details>
+        <>
+          <summary>{diagram.annotation.title}</summary>
+          <p>{diagram.annotation.body}</p>
+        </>
+      </details>
+    )
+  }
+</figure>
+<style>
+  .diagram {
+    background: var(--surface);
+    container-type: inline-size;
+    padding: 2rem;
+    border: 1px solid var(--line);
+  }
+  .stages {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 2rem 0 !important;
+    padding: 0;
+    list-style: none;
+    gap: 1rem;
+  }
+  .stages li {
+    position: relative;
+    border-left: 1px solid var(--accent);
+    padding: 0 0 1rem 1.5rem;
+    margin: 0 !important;
+    overflow-wrap: anywhere;
+  }
+  .stages li:not(:last-child)::after {
+    content: "↓";
+    position: absolute;
+    left: -0.35rem;
+    bottom: -0.7rem;
+    color: var(--accent);
+    background: var(--surface);
+  }
+  strong {
+    display: block;
+    font-size: 1.0625rem;
+    font-weight: 500;
+  }
+  span {
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
+  figcaption {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  details {
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.875rem;
+  }
+  summary {
+    cursor: pointer;
+    padding-block: 1rem;
+    min-height: 48px;
+  }
+  details[open] summary {
+    color: var(--accent);
+  }
+  details p {
+    margin: 0 !important;
+    padding-bottom: 0.5rem;
+    color: var(--muted);
+  }
+  @container (min-width: 31rem) {
+    .stages {
+      grid-template-columns: repeat(var(--stage-count), minmax(0, 1fr));
+    }
+    .stages li {
+      border-left: 0;
+      border-top: 1px solid var(--accent);
+      padding: 1rem 0.75rem 0 0;
+    }
+    .stages li:not(:last-child)::after {
+      content: "→";
+      left: auto;
+      right: 0;
+      bottom: auto;
+      top: 0.85rem;
+    }
+  }
+  @media (max-width: 639px) {
+    .diagram {
+      padding: 1.25rem;
+    }
+  }
+</style>

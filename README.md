@@ -1,17 +1,35 @@
-# My portfolio built with astro
+# David Huson's portfolio
 
-Special thanks to the designer who developed this theme, Jeanine White. 
+A static Astro portfolio at [me.davidhuson.dev](https://me.davidhuson.dev). The personal portfolio documents David's work and engineering decisions; commercial services live at [davidhuson.dev](https://davidhuson.dev).
 
-## Why I used a pre-made theme?
+## Development
 
-Im no UI/UX designer, Im a developer. And while I was having fun learning design, I was spending too much time on that instead of writing content for the site. So I made the tough decision to go with this theme, which was already exactly the type of design i was striving for, so I can spend more time writing content and working on projects. 
+```sh
+npm ci
+npm run dev
+npm run check
+npm run build
+npm run preview
+```
 
-While this is a premade theme, I did put my own touch on it. I changed the fonts to those which I picked for my previous portfolio, and I changed some of the site's wording to better reflect my own experience level and skills.
+The project uses Astro 3.6.4 and system fonts. Page rendering and navigation require no client JavaScript. `npm run check` syncs Astro's generated types and invokes the installed `astro-check` binary directly because Astro 3's dependency resolver does not recognize the current checker's exports-only package.
 
-## Why Astro?
+## Content
 
-Astro is a really awesome tool. It's the perfect combination of my skills with JavaScript/TypeScript, React, HTML, and CSS. And it allows for a faster, lighter bundle to be shipped to the browser. Look at my portfolio for an in depth article about my portfolio where ill delve deeper into why i chose Astro over something like NextJS.
- 
- ## Have feedback?
+Projects are Markdown files in `src/content/projects`. Existing slugs are stable and are also redirect targets from the consulting site. `archived: true` identifies earlier coursework. Article headings generate the contents navigation. Optional `role` and `diagram` frontmatter provide context without requiring a project image.
 
-Please send any feedback to my [email](dhuson@davidhuson.dev) and I'll respond ASAP.
+A semantic diagram has a title, caption, ordered `steps` with `label` and `detail`, and an optional `annotation` with `title` and `body`. The schema validates this structure. Diagrams adapt to their own available width and remain readable without JavaScript. The parser and Python-to-Lisp studies show examples.
+
+Writing lives in `src/content/writing`. Drafts are excluded from both development views and production pages, RSS and sitemap. The six existing drafts still need factual completion before publication. Do not promote their provisional metrics into homepage copy.
+
+## Design and validation
+
+The selected system is Working journal, with optional semantic diagrams from Systems atlas. See [the final specification](docs/portfolio-design-system.md), [discovery](docs/portfolio-redesign-discovery.md), and [implementation plan](docs/portfolio-implementation-plan.md). The four-direction comparison remains in `docs/portfolio-directions` as design history.
+
+`node scripts/verify-redesign.mjs` verifies a production preview at `http://127.0.0.1:4329`. Set `PREVIEW_ORIGIN` to change the origin. It expects Playwright available locally or through `PLAYWRIGHT_MODULE`; `CHROME_PATH` selects an existing browser, and `AXE_PATH` enables WCAG-oriented axe checks. Validation output is written to `docs/portfolio-validation`. These tools are separate from the site's runtime.
+
+## Deployment
+
+Keep the existing Vercel project `portfolio-v2`. `astro.config.mjs` sets the canonical origin to `https://me.davidhuson.dev`; output is static `dist`. Preview deployments must not change production aliases, DNS, mail or the consultancy application's redirects. DAV-20's cutover/rollback documentation remains in `docs/dav-20`.
+
+Legacy public assets, especially the externally linked PDF and MP4, remain available. The redesign no longer loads the old decorative backgrounds. The original site used Jeanine White's Astro portfolio theme; the current editorial layout replaces its presentation while retaining useful content and assets.

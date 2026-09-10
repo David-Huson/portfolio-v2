@@ -4,12 +4,28 @@ publishDate: 2023-11-2 10:55:00
 img: /assets/recursive-descent.webp
 img_alt: Illustration of a parse tree drawn as branching circuit-like paths in a window titled Recursive Descent Parser and Intermediate Representation, with code and diagrams behind it.
 description: |
-  A project assigned to illustrate the complexity of writing an efficient compiler and intermediate representation code generator.
+  A lexer, recursive descent parser and symbol table in C, extended to emit intermediate code with simulated register allocation.
 tags:
   - C
   - Parser
   - Static Analysis
 archived: true
+role: Course project author
+diagram:
+  title: From source text to intermediate representation
+  caption: Simplified from the project account. Symbol-table lookup supports identifier handling. The IR stage was added in the follow-on assignment.
+  steps:
+    - label: Source
+      detail: Small arithmetic language
+    - label: Tokens
+      detail: Identifiers and operators
+    - label: Grammar
+      detail: Recursive descent
+    - label: IR
+      detail: Virtual registers
+  annotation:
+    title: Why keep the grammar visible in the code?
+    body: Each nonterminal has its own function. Expression, term and factor encode precedence through their nesting. This makes a small fixed language straightforward to inspect, at the cost of changing the C source whenever the grammar changes.
 ---
 
 ## The problem

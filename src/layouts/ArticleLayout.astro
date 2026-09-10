@@ -1,0 +1,91 @@
+---
+import type { MarkdownHeading } from "astro";
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "./BaseLayout.astro";
+import SystemDiagram from "../components/SystemDiagram.astro";
+import { formatDate } from "../utils/date";
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  headings: MarkdownHeading[];
+  kind: "project" | "writing";
+  tags: string[];
+  role?: string;
+  archived?: boolean;
+  diagram?: CollectionEntry<"projects">["data"]["diagram"];
+}
+const {
+  title,
+  description,
+  date,
+  headings,
+  kind,
+  tags,
+  role,
+  archived,
+  diagram,
+} = Astro.props;
+const contents = headings.filter((heading) => heading.depth === 2);
+const back =
+  kind === "project"
+    ? { href: "/projects/", label: "Work" }
+    : { href: "/writing/", label: "Writing" };
+---
+
+<BaseLayout title={`${title} | David Huson`} description={description} article>
+  <header class="article-head">
+    <a class="back" href={back.href}>← {back.label}</a><p class="kicker">
+      {
+        kind === "writing"
+          ? "Engineering notes"
+          : archived
+            ? "Case study / Earlier work / Coursework"
+            : "Case study"
+      }
+    </p><h1>{title}</h1><p class="lead">{description}</p><dl
+      class="article-meta"
+    >
+      {
+        role && (
+          <div>
+            <>
+              <dt>Role</dt>
+              <dd>{role}</dd>
+            </>
+          </div>
+        )
+      }<div>
+        <dt>{kind === "writing" ? "Published" : "Project date"}</dt><dd>
+          <time datetime={date.toISOString()}>{formatDate(date)}</time>
+        </dd>
+      </div><div><dt>Context</dt><dd>{tags.join(" · ")}</dd></div>
+    </dl>
+  </header><div class="article-layout">
+    <nav class="toc" aria-label="In this study">
+      <p class="meta">In this {kind === "project" ? "study" : "article"}</p><ol>
+        {
+          diagram && (
+            <li>
+              <a href="#system-overview">System overview</a>
+            </li>
+          )
+        }{
+          contents.map((heading) => (
+            <li>
+              <a href={`#${heading.slug}`}>{heading.text}</a>
+            </li>
+          ))
+        }
+      </ol>
+    </nav><article class="prose">
+      {
+        diagram && (
+          <div id="system-overview">
+            <SystemDiagram diagram={diagram} />
+          </div>
+        )
+      }<slot />
+    </article>
+  </div>
+</BaseLayout>

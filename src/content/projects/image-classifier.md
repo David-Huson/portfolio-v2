@@ -4,7 +4,7 @@ publishDate: 2022-04-21 18:48:00
 img: /assets/horseorhuman_thumbnail.webp
 img_alt: Horse on the left and human on the right with a bright green and blue background. Text in the front that asks, horse or human?
 description: |
-  A project developed as a student-chosen topic for an Introduction to AI course. Special thanks to my project parther Joel Ward
+  A small CNN built with Joel Ward for an AI course. Tuning improved validation accuracy; new images exposed the limits of the training data.
 tags:
   - Artificial Intelligence
   - Python
