@@ -36,3 +36,13 @@ Run `npm run check`, `npm run build`, and `npm run preview -- --host 127.0.0.1 -
 Then run `scripts/verify-redesign.mjs` with the existing Playwright module and installed Chrome. Optional `AXE_PATH` points to axe-core. See the root README for environment variables. This script records checks and actual screenshots in this directory. It adds nothing to the site's shipped JavaScript.
 
 Vercel preview details and hosted validation are recorded separately after deployment.
+
+## Hosted preview
+
+Preview: https://portfolio-v2-r8f2t519g-david-husons-projects.vercel.app
+
+Deployment `dpl_2K8PvLVnM55K7RxsY4g9Kqtr7G8F` is READY in the existing `david-husons-projects/portfolio-v2` Vercel project, from application commit `4644fc2`. The installed CLI 34 was rejected by Vercel's endpoint; a temporary CLI 59 completed the preview without changing the global CLI installation.
+
+All ten HTML routes, feeds, robots, PDF and video match the local build. Vercel appends its own preview-feedback script to the homepage and 404 response; the verifier records that exact addition and excludes only that known trailing script when comparing application bytes. The application still emits no JavaScript. Draft and missing routes return 404. The production subdomain still serves the previous design.
+
+See `hosted-checks.json` and `scripts/verify-hosted-redesign.mjs`. No production promotion or main merge was performed.

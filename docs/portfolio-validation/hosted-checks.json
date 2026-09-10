@@ -1,0 +1,141 @@
+{
+  "checkedAt": "2026-09-10T03:04:15.696Z",
+  "origin": "https://portfolio-v2-r8f2t519g-david-husons-projects.vercel.app",
+  "sourceCommit": "4644fc2",
+  "normalization": "Only the exact observed trailing Vercel feedback script is excluded from application-byte comparison.",
+  "checks": [
+    {
+      "route": "/",
+      "status": 200,
+      "bytes": 10697,
+      "platformFeedbackScript": true,
+      "rawMatchesLocalBuild": false,
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/about/",
+      "status": 200,
+      "bytes": 4750,
+      "platformFeedbackScript": false,
+      "rawMatchesLocalBuild": true,
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/projects/",
+      "status": 200,
+      "bytes": 7061,
+      "platformFeedbackScript": false,
+      "rawMatchesLocalBuild": true,
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/writing/",
+      "status": 200,
+      "bytes": 2873,
+      "platformFeedbackScript": false,
+      "rawMatchesLocalBuild": true,
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/projects/image-classifier/",
+      "status": 200,
+      "bytes": 7168,
+      "platformFeedbackScript": false,
+      "rawMatchesLocalBuild": true,
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/projects/minesweeper/",
+      "status": 200,
+      "bytes": 13487,
+      "platformFeedbackScript": false,
+      "rawMatchesLocalBuild": true,
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/projects/python-fsa-generator/",
+      "status": 200,
+      "bytes": 6930,
+      "platformFeedbackScript": false,
+      "rawMatchesLocalBuild": true,
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/projects/python-lisp-fsa/",
+      "status": 200,
+      "bytes": 8571,
+      "platformFeedbackScript": false,
+      "rawMatchesLocalBuild": true,
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/projects/recursive-descent-parser/",
+      "status": 200,
+      "bytes": 13402,
+      "platformFeedbackScript": false,
+      "rawMatchesLocalBuild": true,
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/404.html",
+      "status": 200,
+      "bytes": 2911,
+      "platformFeedbackScript": true,
+      "rawMatchesLocalBuild": false,
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/sitemap.xml",
+      "status": 200,
+      "bytes": 698,
+      "platformFeedbackScript": false,
+      "rawMatchesLocalBuild": true,
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/rss.xml",
+      "status": 200,
+      "bytes": 259,
+      "platformFeedbackScript": false,
+      "rawMatchesLocalBuild": true,
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/robots.txt",
+      "status": 200,
+      "bytes": 71,
+      "platformFeedbackScript": false,
+      "rawMatchesLocalBuild": true,
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/assets/files/Project_2_Report-compressed.pdf",
+      "status": 200,
+      "bytes": 77384,
+      "platformFeedbackScript": false,
+      "rawMatchesLocalBuild": true,
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/assets/2D_convolution.mp4",
+      "status": 200,
+      "bytes": 78687,
+      "platformFeedbackScript": false,
+      "rawMatchesLocalBuild": true,
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/writing/idempotent-sqs-pipeline/",
+      "status": 404,
+      "expectedStatus": 404
+    },
+    {
+      "route": "/missing-page/",
+      "status": 404,
+      "expectedStatus": 404
+    }
+  ],
+  "productionStatus": 200,
+  "productionStillPreviousDesign": true,
+  "failures": []
+}
