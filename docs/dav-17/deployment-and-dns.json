@@ -1,0 +1,120 @@
+{
+  "capturedAt": "2026-09-08T03:49:22Z",
+  "deployment": {
+    "provider": "Vercel",
+    "account": "david-husons-projects",
+    "project": "portfolio-v2",
+    "projectId": "prj_gV0dQivvwbJCHVvJMCeLbPPYGIcX",
+    "framework": "astro",
+    "productionBranch": "main",
+    "deployedCommit": "2be70ca55f50d05407431395ea9346e06c385205",
+    "deploymentId": "dpl_12wGtavMCCeRmC7PNxjWDtycpAda",
+    "deploymentUrl": "https://portfolio-v2-bu2i2a49b-david-husons-projects.vercel.app",
+    "createdAt": "2026-08-12T14:22:41Z",
+    "status": "READY",
+    "nodeVersion": "24.x",
+    "configuredInstallCommand": null,
+    "effectiveInstallCommand": "npm install",
+    "configuredBuildCommand": null,
+    "effectiveBuildCommand": "npm run build (astro build)",
+    "configuredOutputDirectory": null,
+    "effectiveOutputDirectory": "dist",
+    "rootDirectory": null,
+    "aliases": [
+      "https://davidhuson.dev",
+      "https://www.davidhuson.dev",
+      "https://portfolio-v2-ruddy-psi.vercel.app",
+      "https://portfolio-v2-david-husons-projects.vercel.app",
+      "https://portfolio-v2-git-main-david-husons-projects.vercel.app"
+    ],
+    "projectEnvironmentVariables": []
+  },
+  "dns": {
+    "authority": {
+      "provider": "Google Cloud DNS / Google Domains nameservers",
+      "nameservers": [
+        "ns-cloud-d1.googledomains.com",
+        "ns-cloud-d2.googledomains.com",
+        "ns-cloud-d3.googledomains.com",
+        "ns-cloud-d4.googledomains.com"
+      ],
+      "soaPrimary": "ns-cloud-d1.googledomains.com",
+      "soaSerial": 14
+    },
+    "records": [
+      {
+        "name": "davidhuson.dev",
+        "type": "A",
+        "value": "76.76.21.21",
+        "observedTtlSeconds": 5645
+      },
+      {
+        "name": "www.davidhuson.dev",
+        "type": "CNAME",
+        "value": "cname.vercel-dns.com",
+        "observedTtlSeconds": 5646
+      },
+      {
+        "name": "me.davidhuson.dev",
+        "type": "CNAME",
+        "value": "cname.vercel-dns.com",
+        "observedTtlSeconds": 14400
+      }
+    ],
+    "mailRecordsToPreserve": {
+      "mx": [
+        "1 aspmx.l.google.com",
+        "5 alt1.aspmx.l.google.com",
+        "5 alt2.aspmx.l.google.com",
+        "10 alt3.aspmx.l.google.com",
+        "10 alt4.aspmx.l.google.com"
+      ],
+      "txt": [
+        "v=spf1 include:_spf.google.com ~all"
+      ]
+    },
+    "negativeAnswers": [
+      "No apex AAAA answer",
+      "No apex CAA answer",
+      "No www AAAA answer apart from CNAME resolution",
+      "No me AAAA answer apart from CNAME resolution"
+    ]
+  },
+  "httpAndTls": {
+    "apexRedirect": {
+      "status": 308,
+      "location": "https://www.davidhuson.dev/"
+    },
+    "www": {
+      "status": 200,
+      "server": "Vercel",
+      "hsts": "max-age=63072000",
+      "certificate": {
+        "subject": "CN=www.davidhuson.dev",
+        "issuer": "Let's Encrypt YR2",
+        "notBefore": "2026-08-14T10:50:21Z",
+        "notAfter": "2026-11-12T10:50:20Z",
+        "subjectAlternativeNames": [
+          "www.davidhuson.dev"
+        ]
+      }
+    },
+    "apex": {
+      "certificate": {
+        "subject": "CN=davidhuson.dev",
+        "issuer": "Let's Encrypt YR2",
+        "notBefore": "2026-08-23T20:36:50Z",
+        "notAfter": "2026-11-21T20:36:49Z",
+        "subjectAlternativeNames": [
+          "davidhuson.dev"
+        ]
+      }
+    },
+    "me": {
+      "status": "TLS handshake failed during capture",
+      "certificate": null,
+      "vercelAliasPresent": false
+    },
+    "certificateManagement": "Vercel automatic certificates. The account has no manually managed certificates."
+  }
+}

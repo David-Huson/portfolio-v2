@@ -1,0 +1,447 @@
+{
+  "capturedAt": "2026-09-08T03:57:28.463Z",
+  "origin": "https://www.davidhuson.dev",
+  "source": {
+    "repository": "https://github.com/David-Huson/portfolio-v2",
+    "branch": "codex/dav-17-inventory",
+    "commit": "2be70ca55f50d05407431395ea9346e06c385205",
+    "commitSubject": "Merge pull request #2 from David-Huson/claude/portfolio-identity-structure-52o30g"
+  },
+  "build": {
+    "framework": "Astro ^3.4.3",
+    "installCommand": "npm install (Vercel framework default)",
+    "buildCommand": "astro build",
+    "outputDirectory": "dist (Astro framework default)"
+  },
+  "environment": {
+    "localFilesAndVariableNames": {
+      "sendgrid.env": [
+        "SENDGRID_API_KEY"
+      ]
+    },
+    "vercelProjectVariables": []
+  },
+  "routes": [
+    {
+      "path": "/",
+      "source": "src/pages/index.astro",
+      "visual": true,
+      "requestedUrl": "https://www.davidhuson.dev/",
+      "status": 200,
+      "finalUrl": "https://www.davidhuson.dev/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "David Huson: Portfolio",
+      "canonical": null,
+      "analyticsIds": []
+    },
+    {
+      "path": "/about/",
+      "source": "src/pages/about.astro",
+      "visual": true,
+      "requestedUrl": "https://www.davidhuson.dev/about/",
+      "status": 200,
+      "finalUrl": "https://www.davidhuson.dev/about/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "About | David Huson",
+      "canonical": null,
+      "analyticsIds": []
+    },
+    {
+      "path": "/projects/",
+      "source": "src/pages/projects.astro",
+      "visual": true,
+      "requestedUrl": "https://www.davidhuson.dev/projects/",
+      "status": 200,
+      "finalUrl": "https://www.davidhuson.dev/projects/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "My projects | David Huson",
+      "canonical": null,
+      "analyticsIds": []
+    },
+    {
+      "path": "/writing/",
+      "source": "src/pages/writing.astro",
+      "visual": true,
+      "requestedUrl": "https://www.davidhuson.dev/writing/",
+      "status": 200,
+      "finalUrl": "https://www.davidhuson.dev/writing/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Writing | David Huson",
+      "canonical": null,
+      "analyticsIds": []
+    },
+    {
+      "path": "/projects/image-classifier/",
+      "source": "src/content/projects/image-classifier.md",
+      "visual": true,
+      "requestedUrl": "https://www.davidhuson.dev/projects/image-classifier/",
+      "status": 200,
+      "finalUrl": "https://www.davidhuson.dev/projects/image-classifier/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Image Classifier",
+      "canonical": null,
+      "analyticsIds": []
+    },
+    {
+      "path": "/projects/minesweeper/",
+      "source": "src/content/projects/minesweeper.md",
+      "visual": true,
+      "requestedUrl": "https://www.davidhuson.dev/projects/minesweeper/",
+      "status": 200,
+      "finalUrl": "https://www.davidhuson.dev/projects/minesweeper/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Mastering Recursion in Minesweeper",
+      "canonical": null,
+      "analyticsIds": []
+    },
+    {
+      "path": "/projects/python-fsa-generator/",
+      "source": "src/content/projects/python-fsa-generator.md",
+      "visual": true,
+      "requestedUrl": "https://www.davidhuson.dev/projects/python-fsa-generator/",
+      "status": 200,
+      "finalUrl": "https://www.davidhuson.dev/projects/python-fsa-generator/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Python FSA Generator",
+      "canonical": null,
+      "analyticsIds": []
+    },
+    {
+      "path": "/projects/python-lisp-fsa/",
+      "source": "src/content/projects/python-lisp-fsa.md",
+      "visual": true,
+      "requestedUrl": "https://www.davidhuson.dev/projects/python-lisp-fsa/",
+      "status": 200,
+      "finalUrl": "https://www.davidhuson.dev/projects/python-lisp-fsa/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Python-Lisp FSA parser",
+      "canonical": null,
+      "analyticsIds": []
+    },
+    {
+      "path": "/projects/recursive-descent-parser/",
+      "source": "src/content/projects/recursive-descent-parser.md",
+      "visual": true,
+      "requestedUrl": "https://www.davidhuson.dev/projects/recursive-descent-parser/",
+      "status": 200,
+      "finalUrl": "https://www.davidhuson.dev/projects/recursive-descent-parser/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "C Recursive Descent Parser",
+      "canonical": null,
+      "analyticsIds": []
+    },
+    {
+      "path": "/rss.xml",
+      "source": "src/pages/rss.xml.js",
+      "visual": false,
+      "requestedUrl": "https://www.davidhuson.dev/rss.xml",
+      "status": 200,
+      "finalUrl": "https://www.davidhuson.dev/rss.xml",
+      "contentType": "application/xml",
+      "title": null,
+      "canonical": null,
+      "analyticsIds": []
+    },
+    {
+      "path": "/dav-17-missing-route",
+      "source": "src/pages/404.astro",
+      "visual": false,
+      "requestedUrl": "https://www.davidhuson.dev/dav-17-missing-route",
+      "status": 404,
+      "finalUrl": "https://www.davidhuson.dev/dav-17-missing-route",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Not Found",
+      "canonical": null,
+      "analyticsIds": []
+    }
+  ],
+  "assets": [
+    {
+      "path": "public/assets/2D_convolution.mp4",
+      "bytes": 78687,
+      "sha256": "21f5c407663433e49726ace575c9b87c7cc5204b51b62d55d3152f5ba2bb56ec"
+    },
+    {
+      "path": "public/assets/Maxpool.webp",
+      "bytes": 12092,
+      "sha256": "b6817d6267ef4908e84479fadb17b9503f798dc5123a2ea9ceb0735d856a4c58"
+    },
+    {
+      "path": "public/assets/about-hero.webp",
+      "bytes": 644364,
+      "sha256": "fafb52e3f640c967e868aad735e96c0ecc20e412ffc3c8e9697f4e2517ad675b"
+    },
+    {
+      "path": "public/assets/architecture.webp",
+      "bytes": 38080,
+      "sha256": "8e17b150e5f12b390778b774d0544a4579dcf9c27ab2c8a4934386e2840c83d9"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-footer-dark-1440w.jpg",
+      "bytes": 15589,
+      "sha256": "915fc78e3019fe09731bfbe463350dc224701efe8b1093827ae007f6220225e2"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-footer-dark-800w.jpg",
+      "bytes": 6360,
+      "sha256": "f0d5d430f76f4a186290bb6bbeedd025d60dd73884c03991b85fc25b47f904c5"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-footer-light-1440w.jpg",
+      "bytes": 12614,
+      "sha256": "0de9edd10b2172a93c15c8f1ec5872a6659370151a5adac83539a7223f0a550d"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-footer-light-800w.jpg",
+      "bytes": 4735,
+      "sha256": "19bc9fb51bd9d0635ef70618357c27aa80b0f91fffde50b8e84022992ae11485"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-main-dark-1440w.jpg",
+      "bytes": 28973,
+      "sha256": "2f0270d5e22a874d787c9c09bf5b880236760b15f9a3f4d2aa8de50143fe0563"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-main-dark-800w.jpg",
+      "bytes": 12727,
+      "sha256": "c96d14fe7304a6abb0de6450477d6d4c6dfed481da0a1a52bbd7cd6e6718c10d"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-main-dark.svg",
+      "bytes": 1197,
+      "sha256": "b0d33331d2c90967443bf1f3d15df5ae9a5d66ecef2c4ee07c073e9f0db98ab9"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-main-light-1440w.jpg",
+      "bytes": 21502,
+      "sha256": "eaefb56b8e0f600c1b38205324308e3563d3b7b0dd1eda924105c41ed6e540c4"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-main-light-800w.jpg",
+      "bytes": 14098,
+      "sha256": "d61ff0eec345bcfc2a2527dde94aeac910d19c420b0a79a379d2fb78dbeb866b"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-main-light.svg",
+      "bytes": 1148,
+      "sha256": "3bbda0ddd99e7d89b3b01d6efc85ab50d6d25c912a2dbc6f3324edbe0f96da27"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-subtle-1-dark-1440w.jpg",
+      "bytes": 21122,
+      "sha256": "06e5f3777396bac1687b48e6657bd448f9c0917e2714add311ec9ac87278214a"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-subtle-1-dark-800w.jpg",
+      "bytes": 6710,
+      "sha256": "3f953348b6e34ecc7c57cbe64f47f546971a7bda5c9b9b54249051dad87b81c3"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-subtle-1-light-1440w.jpg",
+      "bytes": 15807,
+      "sha256": "a411d7d32459425ad58a3d7e927d1015c768854e198d7c1c66d17b00b74b82a7"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-subtle-1-light-800w.jpg",
+      "bytes": 6340,
+      "sha256": "118abb468c676208495b9f1979f8574445fef573f06c65961e4f3bf939f5ef0d"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-subtle-2-dark-1440w.jpg",
+      "bytes": 16804,
+      "sha256": "5f63b0755225fc0b12a98632bdb00ad53a7b4ce492f8a1457ca9447b1f58c2cd"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-subtle-2-dark-800w.jpg",
+      "bytes": 7519,
+      "sha256": "b7e54238e5c6286b76f514ca929e06cd70d7f2c76c7765552ba7eec7fb0e6767"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-subtle-2-light-1440w.jpg",
+      "bytes": 14445,
+      "sha256": "2bddd33031220d0844488b15d489bb3ac1e791eebd9d9957e1ebf90a01caf49e"
+    },
+    {
+      "path": "public/assets/backgrounds/bg-subtle-2-light-800w.jpg",
+      "bytes": 5420,
+      "sha256": "4dba81af816f7f5156b85d0e99b155d182d54e331c29a4ad277e32d296811f89"
+    },
+    {
+      "path": "public/assets/backgrounds/noise.png",
+      "bytes": 27223,
+      "sha256": "94f27346cce604553f56ecf43e379d5e9487b820eed39d073645e34e0c11c50f"
+    },
+    {
+      "path": "public/assets/files/Project_2_Report-compressed.pdf",
+      "bytes": 77384,
+      "sha256": "51c0ddbcff72394a77e97399fec07cfec3a690096dba7461f00b9d97bad64c5f"
+    },
+    {
+      "path": "public/assets/fsa-generator-thumbnail.webp",
+      "bytes": 199328,
+      "sha256": "479a15cf4393dca7f31b53ebc5921bc2ed3ef30684f24cf02e99c013502e279a"
+    },
+    {
+      "path": "public/assets/fsa_lisp_thumbnail.webp",
+      "bytes": 22746,
+      "sha256": "fbfad6858dc92901942978f11e938fce976eb82bd749301260e14f56a3b89243"
+    },
+    {
+      "path": "public/assets/fsa_thumbnail.webp",
+      "bytes": 19966,
+      "sha256": "f4c44089ebc679e7a3f323214fc7f73c84384e61a75d7869c17dbca1f510e245"
+    },
+    {
+      "path": "public/assets/horseorhuman_thumbnail.webp",
+      "bytes": 38426,
+      "sha256": "c786ec8d85fde6ab8c9537ec2c3b34f377960224e0f6c5cdb9ae47486588af94"
+    },
+    {
+      "path": "public/assets/kernel.webp",
+      "bytes": 42988,
+      "sha256": "4b6a3235d4b9679317336a5781876c46477bb3525ec539171f4d44fccd465514"
+    },
+    {
+      "path": "public/assets/minesweeper.webp",
+      "bytes": 176666,
+      "sha256": "b91297dfbe8981f4d7bec09f5669a516303bb6382d566f0e2cab07637caefcb7"
+    },
+    {
+      "path": "public/assets/minesweeper_thumbnail.webp",
+      "bytes": 15830,
+      "sha256": "dcfb7c52f025776c6b8743dd5163116548ae2221ec38aa902ae25cb1086d33f4"
+    },
+    {
+      "path": "public/assets/portrait.webp",
+      "bytes": 19178,
+      "sha256": "b20b4efde5657c0590c25348eaaf03e4dd0dee63531e68703ed7686c547d4fc2"
+    },
+    {
+      "path": "public/assets/recrusive-descent.webp",
+      "bytes": 269792,
+      "sha256": "66d48480619a2f0891b4627ac55b61e58e5b6b82c1a1b75e47e7bb54763cc57f"
+    },
+    {
+      "path": "public/assets/recursive-descent.webp",
+      "bytes": 149150,
+      "sha256": "a93a342f4c9dc864c7add75b08a6070361e4ac35084bfe96bd449b8de31f6e4f"
+    },
+    {
+      "path": "public/assets/residual_cblock.webp",
+      "bytes": 5508,
+      "sha256": "54565b09ca5d47414ff75a0fbd035f5e865038dbec87410db67291524b2f0f9a"
+    },
+    {
+      "path": "public/assets/rsa_thumbnail.webp",
+      "bytes": 85828,
+      "sha256": "876feed23de0e219824aad07dc65ebd90512f1e3c05b4a5125351cc71f932d2c"
+    },
+    {
+      "path": "public/assets/vgg16-neural-network.webp",
+      "bytes": 22970,
+      "sha256": "47e2e451ec0a36f82d765a23544be85f7fac4bb0580cbeb2fc3e408b5e277062"
+    },
+    {
+      "path": "public/assets/xlisp-fsa.webp",
+      "bytes": 139810,
+      "sha256": "6b4b0de89ee2c9b3c063242104245fec2295849d18b55ea27412257559041007"
+    },
+    {
+      "path": "public/favicon.svg",
+      "bytes": 749,
+      "sha256": "2d7a310283d6f9cc753210d83224cd6db6348cb82a5536348884e5831d46203f"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/dav-17/screenshots/about-desktop.jpg",
+      "bytes": 45728,
+      "sha256": "d0016c392fc2a3e06a1abd34320efe347a73dc24d39b013bc3db5e18d54cc5eb"
+    },
+    {
+      "path": "docs/dav-17/screenshots/about-mobile.jpg",
+      "bytes": 56958,
+      "sha256": "9b3e641194386db4e58f6b053eca8ea6a51aac1b6529241ace09e48f05d1d746"
+    },
+    {
+      "path": "docs/dav-17/screenshots/home-desktop.jpg",
+      "bytes": 118815,
+      "sha256": "6109acbf3acca55944c72cbc1988004ce3a3482f37816affbc19ef319408f927"
+    },
+    {
+      "path": "docs/dav-17/screenshots/home-mobile.jpg",
+      "bytes": 55196,
+      "sha256": "08ea6071aa03c751c7979ff0750c41ad32ae0ce1b4150e1a4877644daf74f53d"
+    },
+    {
+      "path": "docs/dav-17/screenshots/project-image-classifier-desktop.jpg",
+      "bytes": 88991,
+      "sha256": "80d184aea0f72463f54886d54559c02b4574ad42241fce15f057856588ed5427"
+    },
+    {
+      "path": "docs/dav-17/screenshots/project-image-classifier-mobile.jpg",
+      "bytes": 44314,
+      "sha256": "b16a4143fb120b8cebd9c8e633f7127c93990451e8b1c9565dd2b416332ea031"
+    },
+    {
+      "path": "docs/dav-17/screenshots/project-minesweeper-desktop.jpg",
+      "bytes": 137305,
+      "sha256": "4c45e7ecf3c99ef39fec7a20a8077ca7583625467b19435a0b5d917636ed2ed1"
+    },
+    {
+      "path": "docs/dav-17/screenshots/project-minesweeper-mobile.jpg",
+      "bytes": 47036,
+      "sha256": "3f28ab26be1fd85228e9a1fd3c6f2945d083bcda5f77ab943851f57291fcf091"
+    },
+    {
+      "path": "docs/dav-17/screenshots/project-python-fsa-generator-desktop.jpg",
+      "bytes": 118069,
+      "sha256": "c3ce014d2b92796894c899577b0fb693c31c438ccba01bb0ba58c95989651fe5"
+    },
+    {
+      "path": "docs/dav-17/screenshots/project-python-fsa-generator-mobile.jpg",
+      "bytes": 46146,
+      "sha256": "0d12af74f5433accfb1528d508489483e5b49b51f4e26c3713d410e4ffbb2034"
+    },
+    {
+      "path": "docs/dav-17/screenshots/project-python-lisp-fsa-desktop.jpg",
+      "bytes": 67574,
+      "sha256": "92fc7574cfd7fb7e3b295208d4c1e517dff5070bfd554bea4a0da40c3987e3a5"
+    },
+    {
+      "path": "docs/dav-17/screenshots/project-python-lisp-fsa-mobile.jpg",
+      "bytes": 45254,
+      "sha256": "145d0ab47cfd965b2f335558aeaf593a8d20dd489e5ad0e923601d355b998c83"
+    },
+    {
+      "path": "docs/dav-17/screenshots/project-recursive-descent-parser-desktop.jpg",
+      "bytes": 127741,
+      "sha256": "bc5e80d58a20616a33d55663ccb0556153948ae299755d2aa0ad42985e5cbc18"
+    },
+    {
+      "path": "docs/dav-17/screenshots/project-recursive-descent-parser-mobile.jpg",
+      "bytes": 58807,
+      "sha256": "9ac71deca460c7a551bf5db3ec7d74906e5c47198a0a9abef037d0ce79563460"
+    },
+    {
+      "path": "docs/dav-17/screenshots/projects-desktop.jpg",
+      "bytes": 124736,
+      "sha256": "cf663346edeeeb11d168204a50381aaf128e8d6a80ab52576bd589a272320046"
+    },
+    {
+      "path": "docs/dav-17/screenshots/projects-mobile.jpg",
+      "bytes": 31648,
+      "sha256": "cf9556161b2bff7bae574aacd722586dea7dd3a256663fce50134ba689001ce0"
+    },
+    {
+      "path": "docs/dav-17/screenshots/writing-desktop.jpg",
+      "bytes": 60068,
+      "sha256": "2db3cf01709c09ce1b18d37c4f446088811a50eabc7389dec29fe3597bbf0248"
+    },
+    {
+      "path": "docs/dav-17/screenshots/writing-mobile.jpg",
+      "bytes": 29195,
+      "sha256": "fdf190b9bf36aeb82a3eb4b9883d6918b84a70b891d280cbe07d463850049bd9"
+    }
+  ]
+}
