@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.davidhuson.dev',
+  site: 'https://me.davidhuson.dev',
   integrations: [ react()],
 
 });

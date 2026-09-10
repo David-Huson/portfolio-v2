@@ -1,0 +1,119 @@
+{
+  "checkedAt": "2026-09-10T01:55:05.932Z",
+  "origin": "https://me.davidhuson.dev",
+  "redirectOrigin": "https://davidhuson.dev",
+  "original": false,
+  "assetHashesVerified": 39,
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "finalUrl": "https://me.davidhuson.dev/"
+    },
+    {
+      "path": "/about/",
+      "status": 200,
+      "finalUrl": "https://me.davidhuson.dev/about/"
+    },
+    {
+      "path": "/projects/",
+      "status": 200,
+      "finalUrl": "https://me.davidhuson.dev/projects/"
+    },
+    {
+      "path": "/writing/",
+      "status": 200,
+      "finalUrl": "https://me.davidhuson.dev/writing/"
+    },
+    {
+      "path": "/projects/image-classifier/",
+      "status": 200,
+      "finalUrl": "https://me.davidhuson.dev/projects/image-classifier/"
+    },
+    {
+      "path": "/projects/minesweeper/",
+      "status": 200,
+      "finalUrl": "https://me.davidhuson.dev/projects/minesweeper/"
+    },
+    {
+      "path": "/projects/python-fsa-generator/",
+      "status": 200,
+      "finalUrl": "https://me.davidhuson.dev/projects/python-fsa-generator/"
+    },
+    {
+      "path": "/projects/python-lisp-fsa/",
+      "status": 200,
+      "finalUrl": "https://me.davidhuson.dev/projects/python-lisp-fsa/"
+    },
+    {
+      "path": "/projects/recursive-descent-parser/",
+      "status": 200,
+      "finalUrl": "https://me.davidhuson.dev/projects/recursive-descent-parser/"
+    },
+    {
+      "path": "/rss.xml",
+      "status": 200,
+      "finalUrl": "https://me.davidhuson.dev/rss.xml"
+    },
+    {
+      "path": "/dav-17-missing-route",
+      "status": 404,
+      "finalUrl": "https://me.davidhuson.dev/dav-17-missing-route"
+    },
+    {
+      "path": "/about",
+      "status": 308,
+      "location": "https://me.davidhuson.dev/about?migration_check=1"
+    },
+    {
+      "path": "/projects",
+      "status": 308,
+      "location": "https://me.davidhuson.dev/projects?migration_check=1"
+    },
+    {
+      "path": "/writing",
+      "status": 308,
+      "location": "https://me.davidhuson.dev/writing?migration_check=1"
+    },
+    {
+      "path": "/projects/image-classifier",
+      "status": 308,
+      "location": "https://me.davidhuson.dev/projects/image-classifier?migration_check=1"
+    },
+    {
+      "path": "/projects/minesweeper",
+      "status": 308,
+      "location": "https://me.davidhuson.dev/projects/minesweeper?migration_check=1"
+    },
+    {
+      "path": "/projects/python-fsa-generator",
+      "status": 308,
+      "location": "https://me.davidhuson.dev/projects/python-fsa-generator?migration_check=1"
+    },
+    {
+      "path": "/projects/python-lisp-fsa",
+      "status": 308,
+      "location": "https://me.davidhuson.dev/projects/python-lisp-fsa?migration_check=1"
+    },
+    {
+      "path": "/projects/recursive-descent-parser",
+      "status": 308,
+      "location": "https://me.davidhuson.dev/projects/recursive-descent-parser?migration_check=1"
+    },
+    {
+      "path": "/rss.xml",
+      "status": 308,
+      "location": "https://me.davidhuson.dev/rss.xml?migration_check=1"
+    },
+    {
+      "path": "/assets/files/Project_2_Report-compressed.pdf",
+      "status": 308,
+      "location": "https://me.davidhuson.dev/assets/files/Project_2_Report-compressed.pdf?migration_check=1"
+    },
+    {
+      "path": "/assets/2D_convolution.mp4",
+      "status": 308,
+      "location": "https://me.davidhuson.dev/assets/2D_convolution.mp4?migration_check=1"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-09-10T01:52:15.035Z",
+  "origin": "https://portfolio-v2-asiq87qtd-david-husons-projects.vercel.app",
+  "original": false,
+  "assetHashesVerified": 39,
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "finalUrl": "https://portfolio-v2-asiq87qtd-david-husons-projects.vercel.app/"
+    },
+    {
+      "path": "/about/",
+      "status": 200,
+      "finalUrl": "https://portfolio-v2-asiq87qtd-david-husons-projects.vercel.app/about/"
+    },
+    {
+      "path": "/projects/",
+      "status": 200,
+      "finalUrl": "https://portfolio-v2-asiq87qtd-david-husons-projects.vercel.app/projects/"
+    },
+    {
+      "path": "/writing/",
+      "status": 200,
+      "finalUrl": "https://portfolio-v2-asiq87qtd-david-husons-projects.vercel.app/writing/"
+    },
+    {
+      "path": "/projects/image-classifier/",
+      "status": 200,
+      "finalUrl": "https://portfolio-v2-asiq87qtd-david-husons-projects.vercel.app/projects/image-classifier/"
+    },
+    {
+      "path": "/projects/minesweeper/",
+      "status": 200,
+      "finalUrl": "https://portfolio-v2-asiq87qtd-david-husons-projects.vercel.app/projects/minesweeper/"
+    },
+    {
+      "path": "/projects/python-fsa-generator/",
+      "status": 200,
+      "finalUrl": "https://portfolio-v2-asiq87qtd-david-husons-projects.vercel.app/projects/python-fsa-generator/"
+    },
+    {
+      "path": "/projects/python-lisp-fsa/",
+      "status": 200,
+      "finalUrl": "https://portfolio-v2-asiq87qtd-david-husons-projects.vercel.app/projects/python-lisp-fsa/"
+    },
+    {
+      "path": "/projects/recursive-descent-parser/",
+      "status": 200,
+      "finalUrl": "https://portfolio-v2-asiq87qtd-david-husons-projects.vercel.app/projects/recursive-descent-parser/"
+    },
+    {
+      "path": "/rss.xml",
+      "status": 200,
+      "finalUrl": "https://portfolio-v2-asiq87qtd-david-husons-projects.vercel.app/rss.xml"
+    },
+    {
+      "path": "/dav-17-missing-route",
+      "status": 404,
+      "finalUrl": "https://portfolio-v2-asiq87qtd-david-husons-projects.vercel.app/dav-17-missing-route"
+    }
+  ]
+}
