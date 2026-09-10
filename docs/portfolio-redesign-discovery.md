@@ -8,8 +8,8 @@ The presentation promises a senior healthcare data engineer but supplies coursew
 
 ## Runtime and deployment
 
-- Astro 3, with installed build using Vite 4.5.1. Static output into `dist`. React 18 integration exists. No framework change justified.
-- `npm run dev`, `npm run build`, `npm run preview`. Existing package-lock retained. TypeScript extends Astro's strict preset. No lint/test/check script declared.
+- Astro 3.6.4 installed, with Vite 4.5.1. Static output into `dist`. React 18 integration exists. No framework change justified.
+- `npm run dev`, `npm run build`, `npm run preview`. Existing package-lock retained. TypeScript extends Astro's base preset; stricter flags such as noImplicitAny are commented out. No lint/test/check script declared.
 - Dependencies include Astro RSS, React, SendGrid; development dependencies include Framer Motion and react-modal. No active motion-library use or hydrated React island found in source. Build emits a 142.13 kB React client artifact; its existence does not prove it is requested by pages.
 - Vercel project `portfolio-v2`, production branch main in the prior inventory. Existing `.vercel/project.json` links the checkout. No Sites manifest. Preserve Vercel and static Astro. No Cloudflare migration or registration.
 - `astro.config.mjs` explicitly sets `site: 'https://me.davidhuson.dev'`. This is the canonical origin and must survive the redesign.

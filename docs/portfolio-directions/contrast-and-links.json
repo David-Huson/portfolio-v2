@@ -1,0 +1,43 @@
+{
+  "brokenLocalLinks": [],
+  "textContrast": {
+    "a": {
+      "ink on bg": 13.47,
+      "ink on surface": 14.82,
+      "muted on bg": 5.19,
+      "muted on surface": 5.71,
+      "accent on bg": 7.12,
+      "accent on surface": 7.83
+    },
+    "b": {
+      "ink on bg": 13.4,
+      "ink on surface": 14.53,
+      "muted on bg": 5.57,
+      "muted on surface": 6.04,
+      "accent on bg": 6.35,
+      "accent on surface": 6.89
+    },
+    "c": {
+      "ink on bg": 14.68,
+      "ink on surface": 12.77,
+      "muted on bg": 8.38,
+      "muted on surface": 7.3,
+      "accent on bg": 9.04,
+      "accent on surface": 7.87
+    },
+    "d": {
+      "ink on bg": 12.38,
+      "ink on surface": 14.11,
+      "muted on bg": 5.48,
+      "muted on surface": 6.25,
+      "accent on bg": 6.05,
+      "accent on surface": 6.9
+    },
+    "d-inverted": {
+      "text": 12.38,
+      "secondary": 8.83,
+      "accent": 10.49
+    }
+  },
+  "note": "WCAG relative luminance calculation. Decorative borders excluded. Not a complete WCAG audit."
+}
