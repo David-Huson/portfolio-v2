@@ -56,7 +56,15 @@ const back =
           </div>
         )
       }<div>
-        <dt>{kind === "writing" ? "Published" : "Project date"}</dt><dd>
+        <dt>
+          {
+            kind === "writing"
+              ? "Published"
+              : archived
+                ? "Project date"
+                : "Study updated"
+          }
+        </dt><dd>
           <time datetime={date.toISOString()}>{formatDate(date)}</time>
         </dd>
       </div><div><dt>Context</dt><dd>{tags.join(" · ")}</dd></div>

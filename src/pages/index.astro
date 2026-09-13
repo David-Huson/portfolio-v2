@@ -4,11 +4,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectPreview from "../components/ProjectPreview.astro";
 import SystemDiagram from "../components/SystemDiagram.astro";
 const projects = await getCollection("projects");
-const parser = projects.find(
-  (project) => project.slug === "recursive-descent-parser",
+const featured = projects.find(
+  (project) => project.slug === "healthcare-operations",
 );
 const selected = projects.filter((project) =>
-  ["image-classifier", "python-lisp-fsa"].includes(project.slug),
+  ["healthcare-data-foundation", "recursive-descent-parser"].includes(
+    project.slug,
+  ),
 );
 ---
 
@@ -25,33 +27,36 @@ const selected = projects.filter((project) =>
         I build healthcare data platforms. This is a record of the systems,
         decisions, and tradeoffs behind my work.
       </p><a class="action" href="#work"
-        >Explore the work <span aria-hidden="true">↓</span></a>
+        >Explore the work <span aria-hidden="true">↓</span></a
+      >
     </div>
   </section><section class="section" id="work" aria-labelledby="work-title">
     <header class="section-head">
       <h2 id="work-title">Selected studies</h2><p>
-        Earlier projects, with the decisions and limitations left in.
+        Live healthcare workflows, a data foundation in progress, and earlier
+        work.
       </p>
     </header>{
-      parser && (
+      featured && (
         <article class="feature">
           <div>
             <>
-              <p class="meta">Earlier work · Language design · C</p>
+              <p class="meta">National Breathe Free · Live platform</p>
               <h3 class="feature-title">
-                When the grammar becomes the program.
+                Making healthcare operations easier to coordinate.
               </h3>
               <p class="lead">
-                A small compiler front end. One function per grammar rule, with
-                explicit choices about memory, errors and scope.
+                An internal platform serving 50+ clinics and 300+ total users. I
+                led the design, across enrichment and insurance verification
+                workflows.
               </p>
-              <a class="action" href={`/projects/${parser.slug}/`}>
+              <a class="action" href={`/projects/${featured.slug}/`}>
                 Read the case study <span aria-hidden="true">↗</span>
               </a>
             </>
           </div>
-          {parser.data.diagram && (
-            <SystemDiagram diagram={parser.data.diagram} />
+          {featured.data.diagram && (
+            <SystemDiagram diagram={featured.data.diagram} />
           )}
         </article>
       )
@@ -64,19 +69,21 @@ const selected = projects.filter((project) =>
         ))
       }
     </ul><a class="action" href="/projects/"
-      >All work <span aria-hidden="true">↗</span></a>
+      >All work <span aria-hidden="true">↗</span></a
+    >
   </section><section class="section scope" aria-labelledby="current-title">
     <p class="kicker">Current practice</p><div class="scope-copy">
       <h2 id="current-title">Data systems that can recover.</h2><p>
-        I lead data platform work at a healthcare company. That includes
-        event-driven ingestion on AWS, long-running Kotlin services, and
-        PostgreSQL/Supabase warehouses built around Kimball star schemas.
+        I joined National Breathe Free in May 2024, straight out of college. I
+        designed nearly the entire internal platform, with direction from our
+        CTO and development support from another engineer.
       </p><p>
-        Much of that work replaces manual, error-prone processes with systems
-        that can be audited and recover cleanly from failure. Access control and
-        operational reliability shape the design from the start.
+        Scaling the ETL pipeline has been the hardest part. If I were starting
+        again, I would begin with ingestion and spend more time on the data
+        model before building the frontend.
       </p><a class="action" href="/about/"
-        >More about my work and background <span aria-hidden="true">↗</span></a>
+        >More about my work and background <span aria-hidden="true">↗</span></a
+      >
     </div>
   </section>
 </BaseLayout>

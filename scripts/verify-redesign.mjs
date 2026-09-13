@@ -14,6 +14,8 @@ const routes = [
   "/projects/",
   "/about/",
   "/writing/",
+  "/projects/healthcare-operations/",
+  "/projects/healthcare-data-foundation/",
   "/projects/recursive-descent-parser/",
   "/projects/python-lisp-fsa/",
   "/projects/image-classifier/",
