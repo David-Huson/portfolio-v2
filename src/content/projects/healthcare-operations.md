@@ -1,27 +1,27 @@
 ---
 title: Making healthcare operations easier to coordinate
 description: Designing an internal platform at National Breathe Free, now used across 50+ clinics by more than 300 users.
-publishDate: 2026-09-09
+publishDate: 2026-09-13
 tags:
   - Healthcare operations
   - Product design
   - National Breathe Free
 role: Product owner and lead engineer
 diagram:
-  title: A shared daily workflow
-  caption: A simplified view of the live enrichment workflow. Source appointment data and staff-entered information have different owners.
+  title: One team's output becomes the next team's context
+  caption: An example of the cross-team workflow the platform supports and is being developed to connect. Clinics supply context; remote teams enrich it through each stage; analysts use the resulting data. Appeals apply when needed.
   steps:
-    - label: Appointment activity
-      detail: Bookings, changes and cancellations from the source system
-    - label: Staff enrichment
-      detail: Staff complete the remaining operational fields
-    - label: Validation
-      detail: Required fields and input rules checked before submission
-    - label: Review
-      detail: Submitted work moves to the reviewing team
+    - label: Procedure insurance verification
+      detail: Establish coverage information for the scheduled procedure
+    - label: Insurance criteria review
+      detail: Review clinic documentation against insurance requirements
+    - label: Claim submissions
+      detail: Carry the reviewed information into submission work
+    - label: Appeals
+      detail: Use prior context and submission outcomes when an appeal is needed
   annotation:
-    title: Who owns each value?
-    body: Appointment information comes from the source system. Staff enter the additional information their workflow requires. Keeping that distinction visible helps people understand where a correction belongs.
+    title: What travels between teams?
+    body: Each team contributes information the next team needs. Clinic context, verification results, review decisions and submission outcomes form a connected record. Source-controlled fields remain distinct from staff-entered information, and each team remains responsible for its own review.
 ---
 
 ## The work
@@ -49,6 +49,20 @@ The insurance verification workflow gives the verification team a working view o
 The design process covered appointment urgency, clinic-local time, insurance selection and re-verification. It also exposed a practical tension: completed work should leave the active queue, but staff still need to find it when they make a mistake or receive new information.
 
 Search and recovery belong in the workflow for that reason. So does the distinction between carrying information forward and verifying it again. A prefilled value can save entry without replacing the person's review.
+
+## Enrichment across team boundaries
+
+An enrichment workflow is part of a larger chain of work. Clinics provide the appointment context and supporting information. Remote teams add the details and decisions required for their stage, and that output becomes context for the next team. Analysts use the combined data to understand activity and outcomes across clinics.
+
+One example is the path from procedure insurance verification to insurance criteria review, then claim submissions and, when needed, appeals. Verification establishes the coverage information. The criteria review team works with clinic documentation to assess what is needed for the next step. The submissions team carries the reviewed information forward, while an appeals team needs the earlier context and submission outcome to continue the work.
+
+This also creates a feedback path to clinics. If a remote team needs more information, the workflow needs to make the missing information and next action clear. A handoff should preserve the work already done while showing what still needs attention.
+
+That relationship shapes the design: each team needs a view of its own work, with access to the relevant context from earlier stages. Carrying information forward must not imply that the next team's review is already complete. Ownership, readiness and exceptions need to remain visible as the work changes hands.
+
+For analysts, the value extends beyond the final submitted record. The combined source data and human enrichment provide the context for examining volumes, work waiting between teams and outcomes. Designing for those questions means capturing meaningful states and transitions as the work happens, rather than relying on someone to reconstruct the process from separate trackers later.
+
+The full chain describes the broader workflow design. The live enrichment and insurance verification workflows are part of it; it does not mean every downstream stage has already migrated into the platform.
 
 ## My role and the team
 
